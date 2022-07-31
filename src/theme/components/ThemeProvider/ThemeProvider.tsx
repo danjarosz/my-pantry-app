@@ -2,16 +2,16 @@ import type { FC, ReactNode } from "react";
 import { createContext, useCallback, useEffect, useState } from "react";
 import { Theme } from "../../types/theme";
 
+type SwitchTheme = () => void;
+
 interface ThemeContextValue {
   theme: Theme;
-  changeTheme: ChangeTheme;
+  switchTheme: SwitchTheme;
 }
-
-type ChangeTheme = (theme: Theme) => void;
 
 const defaultThemeContextValue = {
   theme: Theme.light,
-  changeTheme: () => {},
+  switchTheme: () => {},
 };
 
 export const ThemeContext = createContext<ThemeContextValue>(
@@ -53,13 +53,17 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     }
   }, [changeTheme]);
 
+  const switchTheme = useCallback(() => {
+    changeTheme(theme === Theme.light ? Theme.dark : Theme.light);
+  }, [changeTheme, theme]);
+
   useEffect(() => {
     getCurrentTheme();
   }, [getCurrentTheme]);
 
   return (
     <div>
-      <ThemeContext.Provider value={{ theme, changeTheme }}>
+      <ThemeContext.Provider value={{ theme, switchTheme }}>
         {children}
       </ThemeContext.Provider>
     </div>
