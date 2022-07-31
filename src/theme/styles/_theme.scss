@@ -6,28 +6,34 @@
   --font-color-dark: #E7F6F2;
 }
 
+@mixin darkColorsSchema {
+  --page-bgc: var(--page-bgc-dark);
+  --font-color: var(--font-color-dark)
+}
+
+@mixin lightColorsSchema {
+  --page-bgc: var(--page-bgc-light);
+  --font-color: var(--font-color-light)
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --page-bgc: var(--page-bgc-dark);
-    --font-color: var(--font-color-dark)
+    @include darkColorsSchema;
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --page-bgc: var(--page-bgc-light);
-    --font-color: var(--font-color-light)
+    @include lightColorsSchema;
   }
 }
 
 [color-scheme="dark"] {
-  --page-bgc: var(--page-bgc-dark);
-  --font-color: var(--font-color-dark)
+  @include darkColorsSchema;
 }
 
 [color-scheme="light"] {
-  --page-bgc: var(--page-bgc-light);
-  --font-color: var(--font-color-light)
+  @include lightColorsSchema;
 }
 
 /* Base styles */
