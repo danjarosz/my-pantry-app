@@ -1,0 +1,47 @@
+/* SETUP */
+:root {
+  --page-bgc-light: #E7F6F2;
+  --font-color-light: #2C3333;
+  --page-bgc-dark: #2C3333;
+  --font-color-dark: #E7F6F2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bgc: var(--page-bgc-dark);
+    --font-color: var(--font-color-dark)
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --page-bgc: var(--page-bgc-light);
+    --font-color: var(--font-color-light)
+  }
+}
+
+[color-scheme="dark"] {
+  --page-bgc: var(--page-bgc-dark);
+  --font-color: var(--font-color-dark)
+}
+
+[color-scheme="light"] {
+  --page-bgc: var(--page-bgc-light);
+  --font-color: var(--font-color-light)
+}
+
+/* Base styles */
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--page-bgc);
+  color: var(--font-color)
+}
