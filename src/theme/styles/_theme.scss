@@ -1,19 +1,44 @@
 /* SETUP */
+@mixin constantColors {
+  --primary-1: #2c3333;
+  --primary-2: #395b64;
+  --primary-3: #a5c9ca;
+  --primary-4: #e7f6f2;
+  --success: #377d71;
+  --warning: #fed049;
+  --error: #e43f5a;
+  --info: #30aadd;
+}
+
 :root {
-  --page-bgc-light: #E7F6F2;
-  --font-color-light: #2C3333;
-  --page-bgc-dark: #2C3333;
-  --font-color-dark: #E7F6F2;
+  --primary-1: #2c3333;
+  --primary-2: #395b64;
+  --primary-3: #a5c9ca;
+  --primary-4: #e7f6f2;
+  --success: #377d71;
+  --warning: #fed049;
+  --error: #e43f5a;
+  --info: #30aadd;
+
+  --page-bgc-light: var(--primary-4);
+  --font-color-light: var(--primary-1);
+  --page-bgc-dark: var(--primary-1);
+  --font-color-dark: var(--primary-4);
+  --btn-bgc: var(--primary-2);
+  --btn-color: var(--primary-4);
+
+  --font-family: "Roboto", sans-serif;
+  --base-font-size: 1.4rem;
 }
 
 @mixin darkColorsSchema {
   --page-bgc: var(--page-bgc-dark);
-  --font-color: var(--font-color-dark)
+  --font-color: var(--font-color-dark);
 }
 
 @mixin lightColorsSchema {
   --page-bgc: var(--page-bgc-light);
-  --font-color: var(--font-color-light)
+  --font-color: var(--font-color-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,7 +64,7 @@
 /* Base styles */
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-family);
   font-size: 10px;
 }
 
@@ -49,5 +74,5 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: var(--page-bgc);
-  color: var(--font-color)
+  color: var(--font-color);
 }
