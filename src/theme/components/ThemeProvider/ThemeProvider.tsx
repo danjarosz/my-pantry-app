@@ -20,12 +20,13 @@ export const ThemeContext = createContext<ThemeContextValue>(
 
 interface ThemeProviderProps {
   children?: ReactNode;
+  theme?: Theme;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> = (props) => {
-  const { children } = props;
+  const { children, theme: initialTheme = Theme.light } = props;
 
-  const [theme, setTheme] = useState(Theme.light);
+  const [theme, setTheme] = useState(initialTheme);
 
   const changeTheme = useCallback((theme: Theme) => {
     setTheme(theme);
