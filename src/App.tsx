@@ -1,9 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import PantriesPage from "./pages/PantriesPage/PantriesPage";
-import PantryPage from "./pages/PantryPage/PantryPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+
+const LoginPage = React.lazy(() => import("./pages/LoginPage/LoginPage"));
+const PantriesPage = React.lazy(
+  () => import("./pages/PantriesPage/PantriesPage")
+);
+const PantryPage = React.lazy(() => import("./pages/PantryPage/PantryPage"));
+const NotFoundPage = React.lazy(
+  () => import("./pages/NotFoundPage/NotFoundPage")
+);
 
 function App() {
   return (
