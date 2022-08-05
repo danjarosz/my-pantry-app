@@ -13,7 +13,7 @@ const Spinner: FC<SpinnerProps> = (props) => {
 
   return (
     <div
-      test-id={testId}
+      data-testid={testId}
       data-cy={dataCy}
       className={classSelector([
         classes.spinner,
