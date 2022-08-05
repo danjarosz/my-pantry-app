@@ -63,11 +63,9 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   }, [getCurrentTheme]);
 
   return (
-    <div>
-      <ThemeContext.Provider value={{ theme, switchTheme }}>
-        {children}
-      </ThemeContext.Provider>
-    </div>
+    <ThemeContext.Provider value={{ theme, switchTheme }}>
+      {children}
+    </ThemeContext.Provider>
   );
 };
 
