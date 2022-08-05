@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageLoader from "./components/PageLoader/PageLoader";
 
 const LoginPage = React.lazy(() => import("./pages/LoginPage/LoginPage"));
 const PantriesPage = React.lazy(
@@ -12,13 +13,34 @@ const NotFoundPage = React.lazy(
 
 function App() {
   return (
-    <div id="App">
+    <div id="app">
       <BrowserRouter>
         <Routes>
           <Route index element={<LoginPage />} />
-          <Route path="pantries" element={<PantriesPage />} />
-          <Route path="pantries/:pantryUuid" element={<PantryPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route
+            path="pantries"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <PantriesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="pantries/:pantryUuid"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <PantryPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <NotFoundPage />
+              </Suspense>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
