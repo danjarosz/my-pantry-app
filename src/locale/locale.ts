@@ -11,13 +11,21 @@ interface Locales {
 }
 
 const locales: Locales = {
-  app_name: {
-    [supportedLanguages.en]: "Pantry App",
-    [supportedLanguages.pl]: "Moja Spiżarnia",
+  not_found_page_title: {
+    [supportedLanguages.en]: "Not found",
+    [supportedLanguages.pl]: "Nie znaleziono",
   },
-  login: {
+  login_page_title: {
     [supportedLanguages.en]: "Login",
-    [supportedLanguages.pl]: "Zaloguj się",
+    [supportedLanguages.pl]: "Logowanie",
+  },
+  pantries_page_title: {
+    [supportedLanguages.en]: "My pantries",
+    [supportedLanguages.pl]: "Moje spiżarnie",
+  },
+  pantry_page_title: {
+    [supportedLanguages.en]: "Pantry",
+    [supportedLanguages.pl]: "Spiżarnia",
   },
 };
 
