@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import ThemeProvider from "./theme/components/ThemeProvider/ThemeProvider";
+import { LocalizationProvider } from "./locale/utility";
 import App from "./App";
 import "./index.scss";
 
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <LocalizationProvider>
+        <App />
+      </LocalizationProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

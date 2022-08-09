@@ -1,4 +1,7 @@
-import { supportedLanguages } from "./utility";
+export enum supportedLanguages {
+  en = "en",
+  pl = "pl",
+}
 
 interface Locales {
   [key: string]: {

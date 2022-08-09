@@ -1,11 +1,10 @@
 import { createContext, useCallback, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
-import locales from "./locale";
+import locales, { supportedLanguages } from "./locale";
 
-export enum supportedLanguages {
-  en = "en",
-  pl = "pl",
-}
+//----------------------
+// CONTEXT
+//----------------------
 
 type ChangeLang = (lang: supportedLanguages) => void;
 
@@ -27,19 +26,27 @@ export const LocalizationContext = createContext<LocalizationContextInterface>({
   t: (a, b) => "",
 });
 
-const updateHTMLLangAttr = (lang: supportedLanguages) => {
-  const htmlEl = document.querySelector("html");
-  htmlEl?.setAttribute("lang", lang);
+//----------------------
+// HELPERS
+//----------------------
+
+const updateHtmlLangAttr = (lang: supportedLanguages) => {
+  document.documentElement.setAttribute("lang", lang);
 };
+
+//----------------------
+// Localization Provider
+//----------------------
 
 interface LocalizationProviderProps {
   children: ReactNode;
+  initialLang?: supportedLanguages;
 }
 
 export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
-  const { children } = props;
+  const { children, initialLang } = props;
 
-  const [lang, setLang] = useState(supportedLanguages.en);
+  const [lang, setLang] = useState(initialLang || supportedLanguages.en);
 
   const changeLang: ChangeLang = useCallback((lang) => {
     setLang(lang);
@@ -59,7 +66,7 @@ export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
   );
 
   useEffect(() => {
-    updateHTMLLangAttr(lang);
+    updateHtmlLangAttr(lang);
   }, [lang]);
 
   return (
