@@ -1,10 +1,10 @@
 import type { FC } from "react";
-import { useContext, useMemo } from "react";
-import { LocalizationContext } from "../../locale/utility";
+import { useMemo } from "react";
+import { useTranslation } from "../../locale/utility";
 import useHelmet from "../../hooks/useHelmet/useHelmet";
 
 const PantriesPage: FC = () => {
-  const { t } = useContext(LocalizationContext);
+  const { t } = useTranslation();
   const pageTitle = useMemo(() => t("pantries_page_title"), [t]);
   useHelmet(pageTitle, {
     withAppName: true,
