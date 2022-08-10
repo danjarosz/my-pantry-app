@@ -34,6 +34,27 @@ const updateHtmlLangAttr = (lang: supportedLanguages) => {
   document.documentElement.setAttribute("lang", lang);
 };
 
+const restoreLangFromLocalStorage = () => {
+  const restoredLang = localStorage.getItem("lang");
+
+  if (!restoredLang) return;
+
+  if (restoredLang in supportedLanguages) {
+    return restoredLang as supportedLanguages;
+  }
+};
+
+const getInitialLang = (
+  initialLang?: supportedLanguages
+): supportedLanguages => {
+  if (initialLang) return initialLang;
+
+  const restoredLang = restoreLangFromLocalStorage();
+  if (restoredLang) return restoredLang;
+
+  return supportedLanguages.en;
+};
+
 //----------------------
 // Localization Provider
 //----------------------
@@ -46,7 +67,7 @@ interface LocalizationProviderProps {
 export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
   const { children, initialLang } = props;
 
-  const [lang, setLang] = useState(initialLang || supportedLanguages.en);
+  const [lang, setLang] = useState(getInitialLang(initialLang));
 
   const changeLang: ChangeLang = useCallback((lang) => {
     setLang(lang);
@@ -57,6 +78,7 @@ export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
       const { translate = true } = params;
 
       if (!translate || !(key in locales)) {
+        console.error(`Translation key not found: ${key} in ${lang}`);
         return key;
       }
 
@@ -67,6 +89,7 @@ export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
 
   useEffect(() => {
     updateHtmlLangAttr(lang);
+    localStorage.setItem("lang", lang);
   }, [lang]);
 
   return (
