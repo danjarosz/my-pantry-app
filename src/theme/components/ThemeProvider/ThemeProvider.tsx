@@ -2,6 +2,8 @@ import type { FC, ReactNode } from "react";
 import { createContext, useCallback, useEffect, useState } from "react";
 import { Theme } from "../../types/theme";
 
+export const themeStorageKey = "theme";
+
 type SwitchTheme = () => void;
 
 interface ThemeContextValue {
@@ -30,7 +32,7 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
 
   const changeTheme = useCallback((theme: Theme) => {
     setTheme(theme);
-    localStorage.setItem("theme", theme);
+    localStorage.setItem(themeStorageKey, theme);
 
     const root = document.querySelector(":root") as HTMLElement;
     root.setAttribute("color-scheme", `${theme}`);
@@ -42,7 +44,7 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
       ? Theme.dark
       : Theme.light;
 
-    const themeFormLocalStorage = localStorage.getItem("theme");
+    const themeFormLocalStorage = localStorage.getItem(themeStorageKey);
 
     if (
       themeFormLocalStorage === Theme.light ||
