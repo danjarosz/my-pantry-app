@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { useContext, useMemo } from "react";
 import { LocalizationContext } from "../../locale/utility";
-import useHelmet from "../../hooks/useHelmet";
+import useHelmet from "../../hooks/useHelmet/useHelmet";
 
 const LoginPage: FC = () => {
   const { t } = useContext(LocalizationContext);
