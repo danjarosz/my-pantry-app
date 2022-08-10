@@ -1,15 +1,14 @@
 import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta } from "@storybook/react";
 import Button from "./Button";
+import { useTranslation } from "../../../locale/utility";
 
 export default {
   title: "Theme/Button",
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>{args.children}</Button>
-);
-
-export const Primary = Template.bind({});
-Primary.args = { children: "Example Button" };
+export const Primary = () => {
+  const { t } = useTranslation();
+  return <Button>{t("example_button")}</Button>;
+};

@@ -1,8 +1,12 @@
 import "../src/index.scss";
 import { Theme } from "../src/theme/types/theme";
-import ThemeProvider from "../src/theme/components/ThemeProvider/ThemeProvider";
+import ThemeProvider, {
+  themeStorageKey,
+} from "../src/theme/components/ThemeProvider/ThemeProvider";
 import { StoryContext, StoryFn } from "@storybook/react";
 import { useCallback, useEffect, useState } from "react";
+import { supportedLanguages } from "../src/locale/locale";
+import { langStorageKey, LocalizationProvider } from "../src/locale/utility";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -29,6 +33,17 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
+  lang: {
+    name: "Lang",
+    description: "App localization",
+    defaultValue: supportedLanguages.en,
+    toolbar: {
+      icon: "circlehollow",
+      items: [supportedLanguages.en, supportedLanguages.pl],
+      showName: true,
+      dynamicTitle: true,
+    },
+  },
 };
 
 // Function to obtain the intended theme
@@ -45,7 +60,7 @@ const withThemeProvider = (Story: StoryFn, context: StoryContext) => {
   const [id, setId] = useState(generateId());
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem(themeStorageKey, theme);
     setId(generateId);
   }, [theme]);
 
@@ -55,4 +70,29 @@ const withThemeProvider = (Story: StoryFn, context: StoryContext) => {
     </ThemeProvider>
   );
 };
-export const decorators = [withThemeProvider];
+
+const getLang = (langName: supportedLanguages) => {
+  return langName || supportedLanguages.en;
+};
+
+const withLocalization = (Story: StoryFn, context: StoryContext) => {
+  const generateId = useCallback(() => {
+    return `${Math.random()}`;
+  }, []);
+
+  const lang = getLang(context.globals.lang);
+  const [id, setId] = useState(generateId());
+
+  useEffect(() => {
+    localStorage.setItem(langStorageKey, lang);
+    setId(generateId);
+  }, [lang]);
+
+  return (
+    <LocalizationProvider key={id} initialLang={lang}>
+      <Story {...context} />
+    </LocalizationProvider>
+  );
+};
+
+export const decorators = [withThemeProvider, withLocalization];

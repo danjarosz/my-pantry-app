@@ -27,6 +27,10 @@ const locales: Locales = {
     [supportedLanguages.en]: "Pantry",
     [supportedLanguages.pl]: "Spiżarnia",
   },
+  example_button: {
+    [supportedLanguages.en]: "Example Button",
+    [supportedLanguages.pl]: "Przykładowy przycisk",
+  },
 };
 
 export default locales;
