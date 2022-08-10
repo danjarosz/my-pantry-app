@@ -2,6 +2,9 @@ import { createContext, useCallback, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
 import locales, { supportedLanguages } from "./locale";
 
+export const langStorageKey = "lang";
+export const defaultLang = supportedLanguages.en;
+
 //----------------------
 // CONTEXT
 //----------------------
@@ -30,21 +33,23 @@ export const LocalizationContext = createContext<LocalizationContextInterface>({
 // HELPERS
 //----------------------
 
-const updateHtmlLangAttr = (lang: supportedLanguages) => {
-  document.documentElement.setAttribute("lang", lang);
+export const updateHtmlLangAttr = (lang: supportedLanguages) => {
+  document.documentElement.setAttribute(langStorageKey, lang);
 };
 
-const restoreLangFromLocalStorage = () => {
-  const restoredLang = localStorage.getItem("lang");
+export const restoreLangFromLocalStorage = () => {
+  const restoredLang = localStorage.getItem(langStorageKey);
 
-  if (!restoredLang) return;
+  if (!restoredLang) return null;
 
   if (restoredLang in supportedLanguages) {
     return restoredLang as supportedLanguages;
+  } else {
+    return null;
   }
 };
 
-const getInitialLang = (
+export const getInitialLang = (
   initialLang?: supportedLanguages
 ): supportedLanguages => {
   if (initialLang) return initialLang;
@@ -52,7 +57,7 @@ const getInitialLang = (
   const restoredLang = restoreLangFromLocalStorage();
   if (restoredLang) return restoredLang;
 
-  return supportedLanguages.en;
+  return defaultLang;
 };
 
 //----------------------
@@ -89,7 +94,7 @@ export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
 
   useEffect(() => {
     updateHtmlLangAttr(lang);
-    localStorage.setItem("lang", lang);
+    localStorage.setItem(langStorageKey, lang);
   }, [lang]);
 
   return (
