@@ -1,4 +1,10 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import type { FC, ReactNode } from "react";
 import locales, { supportedLanguages } from "./locale";
 
@@ -109,3 +115,5 @@ export const LocalizationProvider: FC<LocalizationProviderProps> = (props) => {
     </LocalizationContext.Provider>
   );
 };
+
+export const useTranslation = () => useContext(LocalizationContext);
