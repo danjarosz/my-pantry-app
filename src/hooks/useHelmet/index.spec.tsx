@@ -1,4 +1,4 @@
-import { initialConfig, generateTitle } from "./index";
+import { initialConfig, generateTitle } from "./";
 import { appName } from "../../constants/constants";
 
 describe("generateTitle", () => {
