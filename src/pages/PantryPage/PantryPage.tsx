@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "../../locale/utility";
-import useHelmet from "../../hooks/useHelmet/useHelmet";
+import { useHelmet } from "../../hooks";
 
 const PantryPage: FC = () => {
   const { t } = useTranslation();

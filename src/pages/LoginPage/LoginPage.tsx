@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { useMemo } from "react";
 import { useTranslation } from "../../locale/utility";
-import useHelmet from "../../hooks/useHelmet/useHelmet";
+import { useHelmet } from "../../hooks";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation();

@@ -1,16 +1,33 @@
 import { useEffect, useState } from "react";
 import { appName } from "../../constants/constants";
 
-export const initialConfig = { withAppName: false, connector: " - " };
+//*************************************
+// TYPES
+//*************************************
 
-interface HelmetConfig {
+export interface HelmetConfig {
   withAppName?: boolean;
   connector?: string;
 }
 
-type Title = string;
+export type HelmetTitle = string;
 
-export const generateTitle = (title: Title, config: HelmetConfig) => {
+//*************************************
+// CONFIG
+//*************************************
+
+export const initialConfig = { withAppName: false, connector: " - " };
+
+//*************************************
+// generateTitle
+//*************************************
+
+export type GenerateTitle = (
+  title: HelmetTitle,
+  config: HelmetConfig
+) => string;
+
+export const generateTitle: GenerateTitle = (title, config) => {
   const {
     withAppName = initialConfig.withAppName,
     connector = initialConfig.connector,
@@ -27,14 +44,19 @@ export const generateTitle = (title: Title, config: HelmetConfig) => {
   return `${appName}${connector}${title}`;
 };
 
-type UseHelmet = (providedTitle: Title, config?: HelmetConfig) => void;
+//*************************************
+// useHelmet
+//*************************************
 
-const useHelmet: UseHelmet = (providedTitle, config = initialConfig) => {
+export type UseHelmet = (
+  providedTitle: HelmetTitle,
+  config?: HelmetConfig
+) => void;
+
+export const useHelmet: UseHelmet = (providedTitle, config = initialConfig) => {
   const [title] = useState(generateTitle(providedTitle, config));
 
   useEffect(() => {
     document.title = title;
   }, [title]);
 };
-
-export default useHelmet;
