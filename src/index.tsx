@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import ThemeProvider from "./theme/components/ThemeProvider/ThemeProvider";
-import { LocalizationProvider } from "./locale/utility";
+import { LocalizationProvider } from "./localization";
 import App from "./App";
 import "./index.scss";
 

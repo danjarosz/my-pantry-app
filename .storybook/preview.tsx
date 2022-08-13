@@ -5,8 +5,11 @@ import ThemeProvider, {
 } from "../src/theme/components/ThemeProvider/ThemeProvider";
 import { StoryContext, StoryFn } from "@storybook/react";
 import { useCallback, useEffect, useState } from "react";
-import { supportedLanguages } from "../src/locale/locale";
-import { langStorageKey, LocalizationProvider } from "../src/locale/utility";
+import { Lang } from "../src/localization/translations/locale";
+import {
+  langStorageKey,
+  LocalizationProvider,
+} from "../src/localization/utility/utility";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -36,10 +39,10 @@ export const globalTypes = {
   lang: {
     name: "Lang",
     description: "App localization",
-    defaultValue: supportedLanguages.en,
+    defaultValue: Lang.en,
     toolbar: {
       icon: "circlehollow",
-      items: [supportedLanguages.en, supportedLanguages.pl],
+      items: [Lang.en, Lang.pl],
       showName: true,
       dynamicTitle: true,
     },
@@ -71,8 +74,8 @@ const withThemeProvider = (Story: StoryFn, context: StoryContext) => {
   );
 };
 
-const getLang = (langName: supportedLanguages) => {
-  return langName || supportedLanguages.en;
+const getLang = (langName: Lang) => {
+  return langName || Lang.en;
 };
 
 const withLocalization = (Story: StoryFn, context: StoryContext) => {

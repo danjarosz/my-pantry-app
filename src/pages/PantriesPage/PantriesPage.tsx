@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useMemo } from "react";
-import { useTranslation } from "../../locale/utility";
+import { useTranslation } from "../../localization";
 import { useHelmet } from "../../hooks";
 
 const PantriesPage: FC = () => {
