@@ -1,10 +1,6 @@
-import type { HelmetConfig, HelmetTitle } from "./types";
-import { appName } from "../../constants/constants";
-import { initialConfig } from "./constants";
-
-//*************************************
-// generateTitle
-//*************************************
+import type { HelmetConfig, HelmetTitle } from "../types";
+import { appName } from "../../../constants/constants";
+import { initialConfig } from "../constants/config";
 
 export type GenerateTitle = (
   title: HelmetTitle,

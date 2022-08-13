@@ -1,11 +1,2 @@
-//*************************************
-// useHelmet
-//*************************************
-
-export { useHelmet, generateTitle } from "./useHelmet";
-export type {
-  UseHelmet,
-  GenerateTitle,
-  HelmetTitle,
-  HelmetConfig,
-} from "./useHelmet";
+export type { UseHelmet, HelmetTitle, HelmetConfig } from "./useHelmet";
+export { useHelmet } from "./useHelmet";
