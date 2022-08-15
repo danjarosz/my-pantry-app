@@ -1,15 +1,11 @@
 import "../src/theme/styles/index.scss";
-import { Theme } from "../src/theme/types/theme";
-import ThemeProvider, {
-  themeStorageKey,
-} from "../src/theme/components/ThemeProvider/ThemeProvider";
+import { Theme } from "../src/theme/types";
 import { StoryContext, StoryFn } from "@storybook/react";
 import { useCallback, useEffect, useState } from "react";
-import { Lang } from "../src/localization/translations/locale";
-import {
-  langStorageKey,
-  LocalizationProvider,
-} from "../src/localization/utility/utility";
+import { Lang, LocalizationProvider } from "../src/localization";
+import { langStorageKey } from "../src/localization/constants";
+import { ThemeProvider } from "../src/theme/components/ThemeProvider";
+import { themeStorageKey } from "../src/theme/constants";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
