@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import classes from "./Button.module.scss";
 
-interface ButtonProps {
+export interface ButtonProps {
   children?: ReactNode;
   onClick?: any;
 }

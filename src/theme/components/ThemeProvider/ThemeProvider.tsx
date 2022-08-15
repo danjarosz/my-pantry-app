@@ -1,26 +1,10 @@
 import type { FC, ReactNode } from "react";
-import { createContext, useCallback, useEffect, useState } from "react";
-import { Theme } from "../../types/theme";
+import { useCallback, useEffect, useState } from "react";
+import { Theme } from "../../types";
+import { themeStorageKey } from "../../constants";
+import { ThemeContext, SwitchTheme } from "../../context/ThemeContext";
 
-export const themeStorageKey = "theme";
-
-type SwitchTheme = () => void;
-
-interface ThemeContextValue {
-  theme: Theme;
-  switchTheme: SwitchTheme;
-}
-
-const defaultThemeContextValue = {
-  theme: Theme.light,
-  switchTheme: () => {},
-};
-
-export const ThemeContext = createContext<ThemeContextValue>(
-  defaultThemeContextValue
-);
-
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   children?: ReactNode;
   theme?: Theme;
 }
@@ -56,7 +40,7 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     }
   }, [changeTheme]);
 
-  const switchTheme = useCallback(() => {
+  const switchTheme = useCallback<SwitchTheme>(() => {
     changeTheme(theme === Theme.light ? Theme.dark : Theme.light);
   }, [changeTheme, theme]);
 

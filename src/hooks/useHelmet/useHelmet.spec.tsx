@@ -1,4 +1,5 @@
-import { initialConfig, generateTitle } from "./useHelmet";
+import { initialConfig } from "./constants/config";
+import { generateTitle } from "./utility/generateTitle";
 import { appName } from "../../constants/constants";
 
 describe("generateTitle", () => {

@@ -2,14 +2,10 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLoader from "./components/PageLoader/PageLoader";
 
-const LoginPage = React.lazy(() => import("./pages/LoginPage/LoginPage"));
-const PantriesPage = React.lazy(
-  () => import("./pages/PantriesPage/PantriesPage")
-);
-const PantryPage = React.lazy(() => import("./pages/PantryPage/PantryPage"));
-const NotFoundPage = React.lazy(
-  () => import("./pages/NotFoundPage/NotFoundPage")
-);
+const LoginPage = React.lazy(() => import("./pages/LoginPage"));
+const PantriesPage = React.lazy(() => import("./pages/PantriesPage"));
+const PantryPage = React.lazy(() => import("./pages/PantryPage"));
+const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
   return (

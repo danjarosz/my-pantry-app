@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import classSelector from "../../helpers/classSelector";
+import { classSelector } from "../../helpers";
 import classes from "./Spinner.module.scss";
 
 export interface SpinnerProps {

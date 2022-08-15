@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
 import Button from "./Button";
-import { useTranslation } from "../../../locale/utility";
+import { useTranslation } from "../../../localization";
 
 export default {
   title: "Theme/Button",
