@@ -1,0 +1,1 @@
+export { restoreLangFromLocalStorage } from "./restoreLangFromLocalStorage";

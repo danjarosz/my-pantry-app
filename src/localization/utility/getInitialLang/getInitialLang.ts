@@ -1,6 +1,6 @@
-import { Lang } from "../types";
-import { defaultLang } from "../constants";
-import { restoreLangFromLocalStorage } from "./restoreLangFromLocalStorage";
+import { Lang } from "../../types";
+import { defaultLang } from "../../constants/";
+import { restoreLangFromLocalStorage } from "../restoreLangFromLocalStorage";
 
 export const getInitialLang = (initialLang?: Lang): Lang => {
   if (initialLang) return initialLang;

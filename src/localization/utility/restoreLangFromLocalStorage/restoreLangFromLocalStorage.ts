@@ -1,5 +1,5 @@
-import { langStorageKey } from "../constants";
-import { Lang } from "../types";
+import { langStorageKey } from "../../constants";
+import { Lang } from "../../types";
 
 export const restoreLangFromLocalStorage = () => {
   const restoredLang = localStorage.getItem(langStorageKey);

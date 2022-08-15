@@ -1,0 +1,1 @@
+export { getInitialLang } from "./getInitialLang";

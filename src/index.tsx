@@ -4,7 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import ThemeProvider from "./theme/components/ThemeProvider/ThemeProvider";
 import { LocalizationProvider } from "./localization";
 import App from "./App";
-import "./index.scss";
+import "./theme/styles/index.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

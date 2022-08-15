@@ -1,4 +1,4 @@
-import "../src/index.scss";
+import "../src/theme/styles/index.scss";
 import { Theme } from "../src/theme/types/theme";
 import ThemeProvider, {
   themeStorageKey,
