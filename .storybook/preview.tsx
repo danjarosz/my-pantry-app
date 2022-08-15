@@ -1,11 +1,9 @@
 import "../src/theme/styles/index.scss";
-import { Theme } from "../src/theme/types";
-import { StoryContext, StoryFn } from "@storybook/react";
-import { useCallback, useEffect, useState } from "react";
-import { Lang, LocalizationProvider } from "../src/localization";
-import { langStorageKey } from "../src/localization/constants";
-import { ThemeProvider } from "../src/theme/components/ThemeProvider";
-import { themeStorageKey } from "../src/theme/constants";
+import {
+  localeDecorator,
+  localeGlobalType,
+} from "../src/localization/storybook";
+import { themeDecorator, themeGlobalType } from "../src/theme/storybook";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -18,80 +16,8 @@ export const parameters = {
 };
 
 export const globalTypes = {
-  theme: {
-    name: "Theme",
-    description: "Global theme for components",
-    defaultValue: Theme.light,
-    toolbar: {
-      icon: "circlehollow",
-      // Array of plain string values or MenuItem shape (see below)
-      items: [Theme.light, Theme.dark],
-      // Property that specifies if the name of the item will be displayed
-      showName: true,
-      // Change title based on selected value
-      dynamicTitle: true,
-    },
-  },
-  lang: {
-    name: "Lang",
-    description: "App localization",
-    defaultValue: Lang.en,
-    toolbar: {
-      icon: "circlehollow",
-      items: [Lang.en, Lang.pl],
-      showName: true,
-      dynamicTitle: true,
-    },
-  },
+  theme: themeGlobalType,
+  lang: localeGlobalType,
 };
 
-// Function to obtain the intended theme
-const getTheme = (themeName: Theme) => {
-  return themeName || Theme.light;
-};
-
-const withThemeProvider = (Story: StoryFn, context: StoryContext) => {
-  const generateId = useCallback(() => {
-    return `${Math.random()}`;
-  }, []);
-
-  const theme = getTheme(context.globals.theme);
-  const [id, setId] = useState(generateId());
-
-  useEffect(() => {
-    localStorage.setItem(themeStorageKey, theme);
-    setId(generateId);
-  }, [theme]);
-
-  return (
-    <ThemeProvider key={id} theme={theme}>
-      <Story {...context} />
-    </ThemeProvider>
-  );
-};
-
-const getLang = (langName: Lang) => {
-  return langName || Lang.en;
-};
-
-const withLocalization = (Story: StoryFn, context: StoryContext) => {
-  const generateId = useCallback(() => {
-    return `${Math.random()}`;
-  }, []);
-
-  const lang = getLang(context.globals.lang);
-  const [id, setId] = useState(generateId());
-
-  useEffect(() => {
-    localStorage.setItem(langStorageKey, lang);
-    setId(generateId);
-  }, [lang]);
-
-  return (
-    <LocalizationProvider key={id} initialLang={lang}>
-      <Story {...context} />
-    </LocalizationProvider>
-  );
-};
-
-export const decorators = [withThemeProvider, withLocalization];
+export const decorators = [themeDecorator, localeDecorator];
