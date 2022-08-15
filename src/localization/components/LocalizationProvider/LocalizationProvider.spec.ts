@@ -1,3 +1,3 @@
-import LocalizationProvider from "./LocalizationProvider";
+import { LocalizationProvider } from "./LocalizationProvider";
 
 describe("LocalizationProvider", () => {});
