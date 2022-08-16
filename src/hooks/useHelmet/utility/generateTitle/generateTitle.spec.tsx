@@ -1,6 +1,6 @@
-import { initialConfig } from "../constants/config";
+import { initialConfig } from "../../constants";
+import { appName } from "../../../../constants";
 import { generateTitle } from "./generateTitle";
-import { appName } from "../../../constants/constants";
 
 describe("generateTitle", () => {
   it("should return App name", () => {
