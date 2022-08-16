@@ -1,3 +1,5 @@
 import App from "./App";
 
-describe("App", () => {});
+describe("App", () => {
+  it("", () => {});
+});

@@ -1,3 +1,5 @@
 import { LocalizationContext } from "./LocalizationContext";
 
-describe("LocalizationContext", () => {});
+describe("LocalizationContext", () => {
+  it("", () => {});
+});

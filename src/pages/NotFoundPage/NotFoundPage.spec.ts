@@ -1,3 +1,5 @@
 import NotFoundPage from "./NotFoundPage";
 
-describe("NotFoundPage", () => {});
+describe("NotFoundPage", () => {
+  it("", () => {});
+});

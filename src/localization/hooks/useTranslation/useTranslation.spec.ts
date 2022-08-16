@@ -1,3 +1,5 @@
 import { useTranslation } from "./useTranslation";
 
-describe("useTranslation", () => {});
+describe("useTranslation", () => {
+  it("", () => {});
+});

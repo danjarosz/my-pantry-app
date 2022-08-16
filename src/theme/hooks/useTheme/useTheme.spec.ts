@@ -1,3 +1,5 @@
 import useTheme from "./useTheme";
 
-describe("useTheme", () => {});
+describe("useTheme", () => {
+  it("", () => {});
+});

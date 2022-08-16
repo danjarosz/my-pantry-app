@@ -1,3 +1,5 @@
 import { updateHtmlLangAttr } from "./updateHtmlLangAttr";
 
-describe("updateHtmlLangAttr", () => {});
+describe("updateHtmlLangAttr", () => {
+  it("", () => {});
+});

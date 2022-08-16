@@ -1,3 +1,5 @@
 import LoginPage from "./LoginPage";
 
-describe("LoginPage", () => {});
+describe("LoginPage", () => {
+  it("", () => {});
+});

@@ -1,3 +1,5 @@
 import { restoreLangFromLocalStorage } from "./restoreLangFromLocalStorage";
 
-describe("restoreLangFromLocalStorage", () => {});
+describe("restoreLangFromLocalStorage", () => {
+  it("", () => {});
+});

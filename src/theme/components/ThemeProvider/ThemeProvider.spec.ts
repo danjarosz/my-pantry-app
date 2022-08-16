@@ -1,3 +1,5 @@
 import ThemeProvider from "./ThemeProvider";
 
-describe("ThemeProvider", () => {});
+describe("ThemeProvider", () => {
+  it("", () => {});
+});

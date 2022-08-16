@@ -1,3 +1,5 @@
 import PantriesPage from "./PantriesPage";
 
-describe("PantriesPage", () => {});
+describe("PantriesPage", () => {
+  it("", () => {});
+});

@@ -1,3 +1,5 @@
 import { LocalizationProvider } from "./LocalizationProvider";
 
-describe("LocalizationProvider", () => {});
+describe("LocalizationProvider", () => {
+  it("", () => {});
+});

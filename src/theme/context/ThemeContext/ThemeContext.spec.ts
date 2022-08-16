@@ -1,3 +1,5 @@
 import { ThemeContext } from "./ThemeContext";
 
-describe("ThemeContext", () => {});
+describe("ThemeContext", () => {
+  it("", () => {});
+});
