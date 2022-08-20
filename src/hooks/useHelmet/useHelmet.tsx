@@ -1,7 +1,7 @@
 import type { HelmetConfig, HelmetTitle } from "./types";
 import { useEffect, useState } from "react";
-import { generateTitle } from "./utility/generateTitle";
-import { initialConfig } from "./constants/config";
+import { generateTitle } from "./utility/";
+import { initialConfig } from "./constants";
 
 export type UseHelmet = (
   providedTitle: HelmetTitle,

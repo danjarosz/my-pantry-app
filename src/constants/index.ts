@@ -1,0 +1,1 @@
+export { appName } from "./constants";
