@@ -2,7 +2,11 @@ import type { FC, ReactNode } from "react";
 import { useCallback, useEffect, useState } from "react";
 import { Theme } from "../../types";
 import { themeStorageKey } from "../../constants";
-import { ThemeContext, SwitchTheme } from "../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
+import type {
+  ChangeTheme,
+  SwitchTheme,
+} from "../../context/ThemeContext/ThemeContext";
 
 export interface ThemeProviderProps {
   children?: ReactNode;
@@ -14,12 +18,14 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
 
   const [theme, setTheme] = useState(initialTheme);
 
-  const changeTheme = useCallback((theme: Theme) => {
+  const changeTheme = useCallback<ChangeTheme>((theme) => {
     setTheme(theme);
     localStorage.setItem(themeStorageKey, theme);
 
     const root = document.querySelector(":root") as HTMLElement;
     root.setAttribute("color-scheme", `${theme}`);
+
+    return theme;
   }, []);
 
   const getCurrentTheme = useCallback(() => {
@@ -49,7 +55,7 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   }, [getCurrentTheme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, switchTheme }}>
+    <ThemeContext.Provider value={{ theme, switchTheme, changeTheme }}>
       {children}
     </ThemeContext.Provider>
   );
