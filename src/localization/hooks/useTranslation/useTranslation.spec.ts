@@ -10,10 +10,12 @@ describe("useTranslation", () => {
 
     const {
       result: {
-        current: { lang },
+        current: { lang, changeLang, t },
       },
     } = renderHook(() => useTranslation());
 
     expect(lang).toEqual(initialValues.lang);
+    expect(changeLang).not.toBeNull();
+    expect(t).not.toBeNull();
   });
 });
