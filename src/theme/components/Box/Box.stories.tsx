@@ -8,5 +8,15 @@ export default {
 } as ComponentMeta<typeof Box>;
 
 export const Primary = () => {
-  return <Box></Box>;
+  return (
+    <Box height="200px" width="300px" overflowX="scroll" overflowY="visible">
+      <div
+        style={{
+          backgroundColor: "teal",
+          width: "400px",
+          height: "300px",
+        }}
+      ></div>
+    </Box>
+  );
 };

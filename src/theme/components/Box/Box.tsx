@@ -13,16 +13,55 @@ export interface BoxProps {
     | "nav"
     | "header"
     | "footer";
+  dataCy?: string;
+  dataTestId?: string;
+  width?: string;
+  height?: string;
+  display?:
+    | "block"
+    | "inline"
+    | "inline-block"
+    | "flex"
+    | "inline-flex"
+    | "none";
+  overflow?: "visible" | "hidden" | "clip" | "scroll" | "auto";
+  overflowX?: "visible" | "hidden" | "clip" | "scroll" | "auto";
+  overflowY?: "visible" | "hidden" | "clip" | "scroll" | "auto";
 }
 
 const Box: FC<BoxProps> = (props) => {
-  const { tag = "div", children } = props;
+  const {
+    tag = "div",
+    dataCy,
+    dataTestId,
+    width = "auto",
+    height = "auto",
+    display = "block",
+    overflow = "hidden",
+    overflowX,
+    overflowY,
+    children,
+  } = props;
 
   const params = useMemo(
     () => ({
-      className: classSelector([classes.box]),
+      "data-cy": dataCy,
+      "data-testid": dataTestId,
+      className: classSelector([
+        classes.box,
+        classes[`display-${display}`],
+        // TODO add positioning
+        classes[`overflow-${overflow}`],
+        //TODO make overflow work better
+        Boolean(overflowX) && classes[`overflowX-${overflowX}`],
+        Boolean(overflowY) && classes[`overflowY-${overflowY}`],
+      ]),
+      style: {
+        width,
+        height,
+      },
     }),
-    []
+    [dataCy, dataTestId, display, height, overflow, overflowX, overflowY, width]
   );
 
   switch (tag) {

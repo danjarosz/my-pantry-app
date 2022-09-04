@@ -1,3 +1,93 @@
 .box {
   box-sizing: border-box;
 }
+
+//Display classes
+// "block" | "inline" | "inline-block" | "flex" | "inline-flex" | "none"
+
+.display-block {
+  display: block;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.display-none {
+  display: none;
+}
+
+//Overflow classes
+//"visible" | "hidden" | "clip" | "scroll" | "auto"
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflowX-visible {
+  overflow-x: visible;
+}
+
+.overflowY-visible {
+  overflow-y: visible;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflowX-hidden {
+  overflow-x: hidden;
+}
+
+.overflowY-hidden {
+  overflow-y: hidden;
+}
+
+.overflow-clip {
+  overflow: clip;
+}
+
+.overflowX-clip {
+  overflow-x: clip;
+}
+
+.overflowY-clip {
+  overflow-y: clip;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflowX-scroll {
+  overflow-x: scroll;
+}
+
+.overflowY-scroll {
+  overflow-y: scroll;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflowX-auto {
+  overflow-x: auto;
+}
+
+.overflowY-auto {
+  overflow-y: auto;
+}
