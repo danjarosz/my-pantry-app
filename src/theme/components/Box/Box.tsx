@@ -64,6 +64,10 @@ const Box: FC<BoxProps> = (props) => {
         Boolean(overflowY) && classes[`overflowY-${overflowY}`],
         // TODO add padding (internal spacing)
         // TODO add margin (external spacing)
+        // TODO add background
+        // TODO add border
+        // TODO add box-shadow
+        // TODO add inline-size
       ]),
       style: {
         width,

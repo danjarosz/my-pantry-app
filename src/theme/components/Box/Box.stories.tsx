@@ -7,6 +7,9 @@ export default {
   component: Box,
 } as ComponentMeta<typeof Box>;
 
+// TODO add some examples of usage
+// TODO write docs (https://storybook.js.org/docs/react/writing-docs/introduction)
+
 export const Primary = () => {
   return (
     <Box
