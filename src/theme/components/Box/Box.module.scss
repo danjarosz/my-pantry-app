@@ -5,89 +5,97 @@
 //Display classes
 // "block" | "inline" | "inline-block" | "flex" | "inline-flex" | "none"
 
-.display-block {
-  display: block;
-}
+.display {
+  &-block {
+    display: block;
+  }
 
-.display-inline {
-  display: inline;
-}
+  &-inline {
+    display: inline;
+  }
 
-.display-inline-block {
-  display: inline-block;
-}
+  &-inline-block {
+    display: inline-block;
+  }
 
-.display-flex {
-  display: flex;
-}
+  &-flex {
+    display: flex;
+  }
 
-.display-inline-flex {
-  display: inline-flex;
-}
+  &-inline-flex {
+    display: inline-flex;
+  }
 
-.display-none {
-  display: none;
+  &-none {
+    display: none;
+  }
 }
 
 //Overflow classes
 //"visible" | "hidden" | "clip" | "scroll" | "auto"
 
-.overflow-visible {
-  overflow: visible;
+.overflow {
+  &-visible {
+    overflow: visible;
+  }
+
+  &-hidden {
+    overflow: hidden;
+  }
+
+  &-clip {
+    overflow: clip;
+  }
+
+  &-scroll {
+    overflow: scroll;
+  }
+
+  &-auto {
+    overflow: auto;
+  }
 }
 
-.overflowX-visible {
-  overflow-x: visible;
+.overflowX {
+  &-visible {
+    overflow-x: visible;
+  }
+
+  &-hidden {
+    overflow-x: hidden;
+  }
+
+  &-clip {
+    overflow-x: clip;
+  }
+
+  &-scroll {
+    overflow-x: scroll;
+  }
+
+  &-auto {
+    overflow-x: auto;
+  }
 }
 
-.overflowY-visible {
-  overflow-y: visible;
-}
+.overflowY {
+  &-visible {
+    overflow-y: visible;
+  }
 
-.overflow-hidden {
-  overflow: hidden;
-}
+  &-hidden {
+    overflow-y: hidden;
+  }
 
-.overflowX-hidden {
-  overflow-x: hidden;
-}
+  &-clip {
+    overflow-y: clip;
+  }
 
-.overflowY-hidden {
-  overflow-y: hidden;
-}
+  &-scroll {
+    overflow-y: scroll;
+  }
 
-.overflow-clip {
-  overflow: clip;
-}
-
-.overflowX-clip {
-  overflow-x: clip;
-}
-
-.overflowY-clip {
-  overflow-y: clip;
-}
-
-.overflow-scroll {
-  overflow: scroll;
-}
-
-.overflowX-scroll {
-  overflow-x: scroll;
-}
-
-.overflowY-scroll {
-  overflow-y: scroll;
-}
-
-.overflow-auto {
-  overflow: auto;
-}
-
-.overflowX-auto {
-  overflow-x: auto;
-}
-
-.overflowY-auto {
-  overflow-y: auto;
+  &-auto {
+    overflow-y: auto;
+  }
 }

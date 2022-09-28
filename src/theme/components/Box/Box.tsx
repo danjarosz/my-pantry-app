@@ -15,6 +15,9 @@ export interface BoxProps {
     | "footer";
   dataCy?: string;
   dataTestId?: string;
+  style?: {
+    [prop: string]: any;
+  };
   width?: string;
   height?: string;
   display?:
@@ -34,34 +37,51 @@ const Box: FC<BoxProps> = (props) => {
     tag = "div",
     dataCy,
     dataTestId,
+    style = {},
     width = "auto",
     height = "auto",
     display = "block",
-    overflow = "hidden",
+    overflow,
     overflowX,
     overflowY,
     children,
   } = props;
+
+  // TODO add some validation - e.g. if there is position: absolute, throw a warning if x and y is not provided
 
   const params = useMemo(
     () => ({
       "data-cy": dataCy,
       "data-testid": dataTestId,
       className: classSelector([
+        // TODO add different options of box-sizing
         classes.box,
         classes[`display-${display}`],
+        // TODO add flexbox properties
         // TODO add positioning
-        classes[`overflow-${overflow}`],
-        //TODO make overflow work better
+        Boolean(overflow) && classes[`overflow-${overflow}`],
         Boolean(overflowX) && classes[`overflowX-${overflowX}`],
         Boolean(overflowY) && classes[`overflowY-${overflowY}`],
+        // TODO add padding (internal spacing)
+        // TODO add margin (external spacing)
       ]),
       style: {
         width,
         height,
+        ...style,
       },
     }),
-    [dataCy, dataTestId, display, height, overflow, overflowX, overflowY, width]
+    [
+      dataCy,
+      dataTestId,
+      display,
+      style,
+      width,
+      height,
+      overflow,
+      overflowX,
+      overflowY,
+    ]
   );
 
   switch (tag) {
