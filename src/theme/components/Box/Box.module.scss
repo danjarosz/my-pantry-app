@@ -1,0 +1,101 @@
+.box {
+  box-sizing: border-box;
+}
+
+//Display classes
+// "block" | "inline" | "inline-block" | "flex" | "inline-flex" | "none"
+
+.display {
+  &-block {
+    display: block;
+  }
+
+  &-inline {
+    display: inline;
+  }
+
+  &-inline-block {
+    display: inline-block;
+  }
+
+  &-flex {
+    display: flex;
+  }
+
+  &-inline-flex {
+    display: inline-flex;
+  }
+
+  &-none {
+    display: none;
+  }
+}
+
+//Overflow classes
+//"visible" | "hidden" | "clip" | "scroll" | "auto"
+
+.overflow {
+  &-visible {
+    overflow: visible;
+  }
+
+  &-hidden {
+    overflow: hidden;
+  }
+
+  &-clip {
+    overflow: clip;
+  }
+
+  &-scroll {
+    overflow: scroll;
+  }
+
+  &-auto {
+    overflow: auto;
+  }
+}
+
+.overflowX {
+  &-visible {
+    overflow-x: visible;
+  }
+
+  &-hidden {
+    overflow-x: hidden;
+  }
+
+  &-clip {
+    overflow-x: clip;
+  }
+
+  &-scroll {
+    overflow-x: scroll;
+  }
+
+  &-auto {
+    overflow-x: auto;
+  }
+}
+
+.overflowY {
+  &-visible {
+    overflow-y: visible;
+  }
+
+  &-hidden {
+    overflow-y: hidden;
+  }
+
+  &-clip {
+    overflow-y: clip;
+  }
+
+  &-scroll {
+    overflow-y: scroll;
+  }
+
+  &-auto {
+    overflow-y: auto;
+  }
+}
