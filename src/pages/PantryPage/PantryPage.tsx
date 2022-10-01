@@ -17,11 +17,9 @@ const PantryPage: FC = () => {
   return (
     <Box tag={"main"}>
       <Typography tag={"h1"}>
-        <>
-          <Typography tag="span">{pageTitle}</Typography>:
-          <Typography tag="span"> </Typography>
-          <Typography tag="span">{pantryUuid}</Typography>
-        </>
+        <Typography tag="span">{pageTitle}</Typography>:
+        <Typography tag="span"> </Typography>
+        <Typography tag="span">{pantryUuid}</Typography>
       </Typography>
     </Box>
   );

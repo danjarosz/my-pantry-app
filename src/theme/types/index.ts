@@ -1,3 +1,11 @@
+import type { ReactNode } from "react";
+
 export { Theme } from "./theme";
 
-export type Children = JSX.Element | JSX.Element[] | string | string[];
+export type Children =
+  | ReactNode
+  | ReactNode[]
+  | JSX.Element
+  | JSX.Element[]
+  | string
+  | string[];
