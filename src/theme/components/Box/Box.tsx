@@ -1,9 +1,10 @@
 import { FC, useMemo } from "react";
 import { classSelector } from "../../helpers";
+import type { Children } from "../../types";
 import classes from "./Box.module.scss";
 
 export interface BoxProps {
-  children?: JSX.Element | JSX.Element[] | string | string[];
+  children?: Children;
   tag?:
     | "div"
     | "main"
@@ -31,6 +32,8 @@ export interface BoxProps {
   overflowX?: "visible" | "hidden" | "clip" | "scroll" | "auto";
   overflowY?: "visible" | "hidden" | "clip" | "scroll" | "auto";
 }
+
+// TODO Develop this component
 
 const Box: FC<BoxProps> = (props) => {
   const {
