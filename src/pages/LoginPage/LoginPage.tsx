@@ -2,6 +2,8 @@ import type { FC } from "react";
 import { useMemo } from "react";
 import { useTranslation } from "../../localization";
 import { useHelmet } from "../../hooks";
+import { Box } from "../../theme/components/Box";
+import { Typography } from "../../theme/components/Typography";
 
 const LoginPage: FC = () => {
   const { t } = useTranslation();
@@ -11,9 +13,9 @@ const LoginPage: FC = () => {
   });
 
   return (
-    <div>
-      <h1>{pageTitle}</h1>
-    </div>
+    <Box tag={"main"}>
+      <Typography tag={"h1"}>{pageTitle}</Typography>
+    </Box>
   );
 };
 

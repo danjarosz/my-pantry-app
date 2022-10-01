@@ -3,6 +3,8 @@ import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "../../localization";
 import { useHelmet } from "../../hooks";
+import { Box } from "../../theme/components/Box";
+import { Typography } from "../../theme/components/Typography";
 
 const PantryPage: FC = () => {
   const { t } = useTranslation();
@@ -13,11 +15,15 @@ const PantryPage: FC = () => {
   });
 
   return (
-    <div>
-      <h1>
-        <span>{pageTitle}</span>: <span>{pantryUuid}</span>
-      </h1>
-    </div>
+    <Box tag={"main"}>
+      <Typography tag={"h1"}>
+        <>
+          <Typography tag="span">{pageTitle}</Typography>:
+          <Typography tag="span"> </Typography>
+          <Typography tag="span">{pantryUuid}</Typography>
+        </>
+      </Typography>
+    </Box>
   );
 };
 
