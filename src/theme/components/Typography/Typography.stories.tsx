@@ -10,9 +10,9 @@ export default {
 // TODO add some examples of usage
 // TODO write docs (https://storybook.js.org/docs/react/writing-docs/introduction)
 
-export const Primary = () => {
+export const Paragraph = () => {
   return (
-    <Typography>
+    <Typography tag={"p"}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend
       elit a ultrices tempus. Fusce massa est, viverra a dolor quis, tincidunt
       gravida mi. Proin feugiat consequat justo in efficitur. Nam scelerisque,

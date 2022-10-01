@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { useMemo } from "react";
 import { useTranslation } from "../../localization";
 import { useHelmet } from "../../hooks";
+import { Typography } from "../../theme/components/Typography";
 
 const PantriesPage: FC = () => {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ const PantriesPage: FC = () => {
 
   return (
     <div>
-      <h1>{pageTitle}</h1>
+      <Typography tag={"h1"}>{pageTitle}</Typography>
     </div>
   );
 };

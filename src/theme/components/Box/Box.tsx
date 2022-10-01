@@ -1,5 +1,6 @@
-import { FC, useMemo } from "react";
+import { useMemo } from "react";
 import { classSelector } from "../../helpers";
+import type { FC } from "react";
 import type { Children } from "../../types";
 import classes from "./Box.module.scss";
 
