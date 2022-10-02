@@ -16,11 +16,6 @@ describe("Typography", () => {
     expect(screen.getByTestId(testId)).toHaveClass("p");
   });
 
-  it("should render  <span/>", () => {
-    render(<Typography tag={"span"} dataTestId={testId}></Typography>);
-    expect(screen.getByTestId(testId)).toHaveClass("span");
-  });
-
   it("should render  <h1/>", () => {
     render(<Typography tag={"h1"} dataTestId={testId}></Typography>);
     expect(screen.getByTestId(testId)).toHaveClass("h1");
@@ -49,5 +44,35 @@ describe("Typography", () => {
   it("should render  <h6/>", () => {
     render(<Typography tag={"h6"} dataTestId={testId}></Typography>);
     expect(screen.getByTestId(testId)).toHaveClass("h6");
+  });
+
+  it("should render  <span/>", () => {
+    render(<Typography tag={"span"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("span");
+  });
+
+  it("should render  <em/>", () => {
+    render(<Typography tag={"em"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("em");
+  });
+
+  it("should render  <i/>", () => {
+    render(<Typography tag={"i"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("i");
+  });
+
+  it("should render  <strong/>", () => {
+    render(<Typography tag={"strong"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("strong");
+  });
+
+  it("should render  <b/>", () => {
+    render(<Typography tag={"b"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("b");
+  });
+
+  it("should render  <u/>", () => {
+    render(<Typography tag={"u"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("u");
   });
 });
