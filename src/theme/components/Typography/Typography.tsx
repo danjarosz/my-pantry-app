@@ -6,7 +6,6 @@ import classes from "./Typography.module.scss";
 
 export interface TypographyProps {
   children?: Children;
-  // TODO complement missing tags
   tag?:
     | "p"
     | "h1"
