@@ -1,9 +1,11 @@
+import { useMemo } from "react";
+import { classSelector } from "../../helpers";
 import type { FC } from "react";
-import { Children } from "../../types";
+import type { Children } from "../../types";
+import classes from "./List.module.scss";
 
 export interface ListProps {
   children?: Children;
-  // TODO complement missing tags
   tag?: "ul" | "ol" | "dl";
   dataCy?: string;
   dataTestId?: string;
@@ -12,8 +14,33 @@ export interface ListProps {
   };
 }
 
-const List: FC<ListProps> = () => {
-  return <ul></ul>;
+// TODO Develop this component
+
+const List: FC<ListProps> = (props) => {
+  const { tag = "ul", dataCy, dataTestId, style, children } = props;
+
+  const params = useMemo(
+    () => ({
+      "data-cy": dataCy,
+      "data-testid": dataTestId,
+      className: classSelector([classes.list, classes[`${tag}`]]),
+      style: {
+        ...style,
+      },
+    }),
+    [tag, dataCy, dataTestId, style]
+  );
+
+  switch (tag) {
+    case "ul":
+      return <ul {...params}>{children}</ul>;
+    case "ol":
+      return <ol {...params}>{children}</ol>;
+    case "dl":
+      return <dl {...params}>{children}</dl>;
+    default:
+      return <ul {...params}>{children}</ul>;
+  }
 };
 
 export default List;
