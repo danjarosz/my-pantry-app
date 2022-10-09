@@ -10,7 +10,7 @@ export default {
 // TODO add some examples of usage
 // TODO write docs (https://storybook.js.org/docs/react/writing-docs/introduction)
 
-export const Primary = () => {
+export const Default = () => {
   return (
     <Box
       tag={"aside"}
