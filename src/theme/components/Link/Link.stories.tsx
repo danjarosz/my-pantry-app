@@ -10,6 +10,6 @@ export default {
 // TODO add some examples of usage
 // TODO write docs (https://storybook.js.org/docs/react/writing-docs/introduction)
 
-export const Paragraph = () => {
+export const Default = () => {
   return <Link url={"https://www.google.pl"}>Link text</Link>;
 };

@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { classSelector } from "../../helpers";
 import type { FC } from "react";
 import type { Children } from "../../types";
-import classes from "./ListItem.module.scss";
+import classes from "./DescriptionList.module.scss";
 
-export interface ListItemProps {
+export interface DescriptionListProps {
   children?: Children;
   dataCy?: string;
   dataTestId?: string;
@@ -15,14 +15,14 @@ export interface ListItemProps {
 
 // TODO Develop this component
 
-const ListItem: FC<ListItemProps> = (props) => {
+const DescriptionList: FC<DescriptionListProps> = (props) => {
   const { dataCy, dataTestId, style, children } = props;
 
   const params = useMemo(
     () => ({
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes["list-item"]]),
+      className: classSelector([classes["description-list"]]),
       style: {
         ...style,
       },
@@ -30,7 +30,7 @@ const ListItem: FC<ListItemProps> = (props) => {
     [dataCy, dataTestId, style]
   );
 
-  return <li {...params}>{children}</li>;
+  return <dl {...params}>{children}</dl>;
 };
 
-export default ListItem;
+export default DescriptionList;

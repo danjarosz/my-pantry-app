@@ -1,21 +1,15 @@
 import React from "react";
 import { ComponentMeta } from "@storybook/react";
-import { List } from "./index";
-import { ListItem } from "../ListItem";
+import { DescriptionListItem } from "./index";
 
 export default {
-  title: "Theme/List",
-  component: List,
-} as ComponentMeta<typeof List>;
+  title: "Theme/DescriptionListItem",
+  component: DescriptionListItem,
+} as ComponentMeta<typeof DescriptionListItem>;
 
 // TODO add some examples of usage
 // TODO write docs (https://storybook.js.org/docs/react/writing-docs/introduction)
 
 export const Default = () => {
-  return (
-    <List>
-      <ListItem>One</ListItem>
-      <ListItem>Two</ListItem>
-    </List>
-  );
+  return <DescriptionListItem title={"title"} description={"title is title"} />;
 };

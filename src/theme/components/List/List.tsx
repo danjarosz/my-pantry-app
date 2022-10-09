@@ -6,7 +6,7 @@ import classes from "./List.module.scss";
 
 export interface ListProps {
   children?: Children;
-  tag?: "ul" | "ol" | "dl";
+  tag?: "ul" | "ol";
   dataCy?: string;
   dataTestId?: string;
   style?: {
@@ -36,8 +36,6 @@ const List: FC<ListProps> = (props) => {
       return <ul {...params}>{children}</ul>;
     case "ol":
       return <ol {...params}>{children}</ol>;
-    case "dl":
-      return <dl {...params}>{children}</dl>;
     default:
       return <ul {...params}>{children}</ul>;
   }
