@@ -1,19 +1,35 @@
-import { FC, ReactNode } from "react";
+import { FC, useMemo } from "react";
 import classes from "./Button.module.scss";
+import { Children } from "../../types";
+import { classSelector } from "../../helpers";
 
 export interface ButtonProps {
-  children?: ReactNode;
+  children?: Children;
+  dataCy?: string;
+  dataTestId?: string;
+  style?: {
+    [prop: string]: any;
+  };
   onClick?: any;
 }
 
 const Button: FC<ButtonProps> = (props) => {
-  const { children, onClick } = props;
+  const { children, dataCy, dataTestId, style, onClick } = props;
 
-  return (
-    <button className={classes.button} onClick={onClick}>
-      {children}
-    </button>
+  const params = useMemo(
+    () => ({
+      "data-cy": dataCy,
+      "data-testid": dataTestId,
+      className: classSelector([classes.button]),
+      style: {
+        ...style,
+      },
+      onClick: onClick,
+    }),
+    [dataCy, dataTestId, style, onClick]
   );
+
+  return <button {...params}>{children}</button>;
 };
 
 export default Button;
