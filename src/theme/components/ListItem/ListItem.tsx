@@ -6,7 +6,6 @@ import classes from "./ListItem.module.scss";
 
 export interface ListItemProps {
   children?: Children;
-  tag?: "li" | "dt" | "dd";
   dataCy?: string;
   dataTestId?: string;
   style?: {
@@ -17,30 +16,21 @@ export interface ListItemProps {
 // TODO Develop this component
 
 const ListItem: FC<ListItemProps> = (props) => {
-  const { tag = "li", dataCy, dataTestId, style, children } = props;
+  const { dataCy, dataTestId, style, children } = props;
 
   const params = useMemo(
     () => ({
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes["list-item"], classes[`${tag}`]]),
+      className: classSelector([classes["list-item"]]),
       style: {
         ...style,
       },
     }),
-    [tag, dataCy, dataTestId, style]
+    [dataCy, dataTestId, style]
   );
 
-  switch (tag) {
-    case "li":
-      return <li {...params}>{children}</li>;
-    case "dt":
-      return <dt {...params}>{children}</dt>;
-    case "dd":
-      return <dd {...params}>{children}</dd>;
-    default:
-      return <li {...params}>{children}</li>;
-  }
+  return <li {...params}>{children}</li>;
 };
 
 export default ListItem;

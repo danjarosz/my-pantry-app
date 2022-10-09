@@ -20,9 +20,4 @@ describe("List", () => {
     render(<List tag={"ol"} dataTestId={testId}></List>);
     expect(screen.getByTestId(testId)).toHaveClass("ol");
   });
-
-  it("should render  <dl/>", () => {
-    render(<List tag={"dl"} dataTestId={testId}></List>);
-    expect(screen.getByTestId(testId)).toHaveClass("dl");
-  });
 });

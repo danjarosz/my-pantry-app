@@ -4,9 +4,8 @@ import type { FC } from "react";
 import type { Children } from "../../types";
 import classes from "./List.module.scss";
 
-export interface ListProps {
+export interface DescriptionListProps {
   children?: Children;
-  tag?: "ul" | "ol";
   dataCy?: string;
   dataTestId?: string;
   style?: {
@@ -16,29 +15,22 @@ export interface ListProps {
 
 // TODO Develop this component
 
-const List: FC<ListProps> = (props) => {
-  const { tag = "ul", dataCy, dataTestId, style, children } = props;
+const DescriptionList: FC<DescriptionListProps> = (props) => {
+  const { dataCy, dataTestId, style, children } = props;
 
   const params = useMemo(
     () => ({
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes.list, classes[`${tag}`]]),
+      className: classSelector([classes["description-list"]]),
       style: {
         ...style,
       },
     }),
-    [tag, dataCy, dataTestId, style]
+    [dataCy, dataTestId, style]
   );
 
-  switch (tag) {
-    case "ul":
-      return <ul {...params}>{children}</ul>;
-    case "ol":
-      return <ol {...params}>{children}</ol>;
-    default:
-      return <ul {...params}>{children}</ul>;
-  }
+  return <dl {...params}>{children}</dl>;
 };
 
-export default List;
+export default DescriptionList;
