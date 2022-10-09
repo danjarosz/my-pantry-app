@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { classSelector } from "../../helpers";
 import type { FC } from "react";
 import type { Children } from "../../types";
-import classes from "./List.module.scss";
+import classes from "./DescriptionList.module.scss";
 
 export interface DescriptionListProps {
   children?: Children;

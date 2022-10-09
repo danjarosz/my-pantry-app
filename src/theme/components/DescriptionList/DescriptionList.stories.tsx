@@ -4,7 +4,7 @@ import { DescriptionList } from "./index";
 import { DescriptionListItem } from "../DescriptionListItem";
 
 export default {
-  title: "Theme/Description",
+  title: "Theme/DescriptionList",
   component: DescriptionList,
 } as ComponentMeta<typeof DescriptionList>;
 
