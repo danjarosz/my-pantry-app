@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
-import type { FC } from "react";
+import type { FC, RefObject } from "react";
 import type { Children } from "../../types";
 import classes from "./List.module.scss";
 
 export interface ListProps {
   children?: Children;
+  ref?: RefObject<any>;
   tag?: "ul" | "ol";
   dataCy?: string;
   dataTestId?: string;
@@ -17,18 +18,17 @@ export interface ListProps {
 // TODO Develop this component
 
 const List: FC<ListProps> = (props) => {
-  const { tag = "ul", dataCy, dataTestId, style, children } = props;
+  const { children, ref, tag = "ul", dataCy, dataTestId, style } = props;
 
   const params = useMemo(
     () => ({
+      ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
       className: classSelector([classes.list, classes[`${tag}`]]),
-      style: {
-        ...style,
-      },
+      style,
     }),
-    [tag, dataCy, dataTestId, style]
+    [ref, tag, dataCy, dataTestId, style]
   );
 
   switch (tag) {

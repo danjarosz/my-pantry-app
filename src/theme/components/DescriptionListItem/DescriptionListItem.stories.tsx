@@ -10,6 +10,20 @@ export default {
 // TODO add some examples of usage
 // TODO write docs (https://storybook.js.org/docs/react/writing-docs/introduction)
 
-export const Default = () => {
-  return <DescriptionListItem title={"title"} description={"title is title"} />;
+export const SingleDescription = () => {
+  return (
+    <DescriptionListItem
+      title={"Single"}
+      description={"The Single Onle description"}
+    />
+  );
+};
+
+export const MultiDescription = () => {
+  return (
+    <DescriptionListItem
+      title={"Double"}
+      description={["First description", "Second description"]}
+    />
+  );
 };
