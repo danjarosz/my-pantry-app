@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
-import type { FC } from "react";
+import type { FC, RefObject } from "react";
 import type { Children } from "../../types";
 import classes from "./Box.module.scss";
 
 export interface BoxProps {
   children?: Children;
+  ref?: RefObject<any>;
   tag?:
     | "div"
     | "main"
@@ -38,6 +39,8 @@ export interface BoxProps {
 
 const Box: FC<BoxProps> = (props) => {
   const {
+    children,
+    ref,
     tag = "div",
     dataCy,
     dataTestId,
@@ -48,13 +51,13 @@ const Box: FC<BoxProps> = (props) => {
     overflow,
     overflowX,
     overflowY,
-    children,
   } = props;
 
   // TODO add some validation - e.g. if there is position: absolute, throw a warning if x and y is not provided
 
   const params = useMemo(
     () => ({
+      ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
       className: classSelector([
@@ -80,6 +83,7 @@ const Box: FC<BoxProps> = (props) => {
       },
     }),
     [
+      ref,
       dataCy,
       dataTestId,
       display,
