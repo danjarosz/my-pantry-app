@@ -17,6 +17,10 @@ export interface CiteProps {
       [prop: string]: any;
     };
   };
+  classNames?: {
+    link: string[];
+    cite: string[];
+  };
   url: string;
   source: string;
 }
@@ -29,6 +33,7 @@ const Cite: FC<CiteProps> = (props) => {
     dataCy,
     dataTestId,
     style = { link: undefined, cite: undefined },
+    classNames = { link: [], cite: [] },
     url,
     source,
   } = props;
@@ -40,16 +45,17 @@ const Cite: FC<CiteProps> = (props) => {
       dataTestId,
       url,
       style: style.link,
+      className: classSelector([...classNames.link]),
     }),
-    [ref, dataCy, dataTestId, style, url]
+    [ref, dataCy, dataTestId, url, style.link, classNames.link]
   );
 
   const citeParams = useMemo(
     () => ({
       style: style.cite,
-      className: classSelector([classes.cite]),
+      className: classSelector([classes.cite, ...classNames.cite]),
     }),
-    [style.cite]
+    [classNames.cite, style.cite]
   );
 
   return (
