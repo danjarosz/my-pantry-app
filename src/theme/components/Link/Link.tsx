@@ -13,21 +13,30 @@ export interface LinkProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
 }
 
 const Link: FC<LinkProps> = (props) => {
-  const { children, ref, dataCy, dataTestId, url, style } = props;
+  const {
+    children,
+    ref,
+    dataCy,
+    dataTestId,
+    url,
+    style,
+    classNames = [],
+  } = props;
 
   const params = useMemo(
     () => ({
       ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes.link]),
+      className: classSelector([classes.link, ...classNames]),
       href: url,
       style,
     }),
-    [ref, dataCy, dataTestId, style, url]
+    [ref, dataCy, dataTestId, style, classNames, url]
   );
 
   return <a {...params}>{children}</a>;
