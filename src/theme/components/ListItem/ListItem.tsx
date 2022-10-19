@@ -12,22 +12,23 @@ export interface ListItemProps {
   style?: {
     [prop: string]: any;
   };
+  classNames: string[];
 }
 
 // TODO Develop this component
 
 const ListItem: FC<ListItemProps> = (props) => {
-  const { children, ref, dataCy, dataTestId, style } = props;
+  const { children, ref, dataCy, dataTestId, style, classNames = [] } = props;
 
   const params = useMemo(
     () => ({
       ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes["list-item"]]),
+      className: classSelector([classes["list-item"], ...classNames]),
       style,
     }),
-    [ref, dataCy, dataTestId, style]
+    [ref, dataCy, dataTestId, style, classNames]
   );
 
   return <li {...params}>{children}</li>;
