@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
-import type { FC } from "react";
+import type { FC, RefObject } from "react";
 import type { Children } from "../../types";
 import classes from "./Box.module.scss";
 
 export interface BoxProps {
   children?: Children;
+  ref?: RefObject<any>;
   tag?:
     | "div"
     | "main"
@@ -20,6 +21,7 @@ export interface BoxProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
   width?: string;
   height?: string;
   display?:
@@ -38,23 +40,26 @@ export interface BoxProps {
 
 const Box: FC<BoxProps> = (props) => {
   const {
+    children,
+    ref,
     tag = "div",
     dataCy,
     dataTestId,
     style = {},
+    classNames = [],
     width = "auto",
     height = "auto",
     display = "block",
     overflow,
     overflowX,
     overflowY,
-    children,
   } = props;
 
   // TODO add some validation - e.g. if there is position: absolute, throw a warning if x and y is not provided
 
   const params = useMemo(
     () => ({
+      ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
       className: classSelector([
@@ -71,7 +76,8 @@ const Box: FC<BoxProps> = (props) => {
         // TODO add border
         // TODO add box-shadow
         // TODO add background or create component to manage bgc
-        // TODO add inline-size and box-size
+        // TODO add inline-size and box-size.
+        ...classNames,
       ]),
       style: {
         width,
@@ -80,10 +86,12 @@ const Box: FC<BoxProps> = (props) => {
       },
     }),
     [
+      ref,
       dataCy,
       dataTestId,
       display,
       style,
+      classNames,
       width,
       height,
       overflow,

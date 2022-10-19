@@ -19,6 +19,10 @@ export const Default = () => {
         title={"Second title"}
         description={"The description of the second item"}
       />
+      <DescriptionListItem
+        title={"Double"}
+        description={["First description", "Second description"]}
+      />
     </DescriptionList>
   );
 };

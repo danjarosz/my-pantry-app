@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
-import type { FC } from "react";
+import type { FC, RefObject } from "react";
 import type { Children } from "../../types";
 import classes from "./Typography.module.scss";
 
 export interface TypographyProps {
   children?: Children;
+  ref?: RefObject<any>;
   tag?:
     | "p"
     | "h1"
@@ -25,23 +26,35 @@ export interface TypographyProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
 }
 
 // TODO Develop this component
 
 const Typography: FC<TypographyProps> = (props) => {
-  const { tag = "p", dataCy, dataTestId, style, children } = props;
+  const {
+    children,
+    ref,
+    tag = "p",
+    dataCy,
+    dataTestId,
+    style,
+    classNames = [],
+  } = props;
 
   const params = useMemo(
     () => ({
+      ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes.typography, classes[`${tag}`]]),
-      style: {
-        ...style,
-      },
+      className: classSelector([
+        classes.typography,
+        classes[`${tag}`],
+        ...classNames,
+      ]),
+      style,
     }),
-    [tag, dataCy, dataTestId, style]
+    [ref, tag, dataCy, dataTestId, style, classNames]
   );
 
   switch (tag) {

@@ -1,33 +1,42 @@
-import type { FC } from "react";
-import { Children } from "../../types";
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
+import type { FC, RefObject } from "react";
+import type { Children } from "../../types";
 import classes from "./Link.module.scss";
 
 export interface LinkProps {
   children?: Children;
+  ref?: RefObject<any>;
   dataCy?: string;
   dataTestId?: string;
   url: string;
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
 }
 
 const Link: FC<LinkProps> = (props) => {
-  const { children, dataCy, dataTestId, url, style } = props;
+  const {
+    children,
+    ref,
+    dataCy,
+    dataTestId,
+    url,
+    style,
+    classNames = [],
+  } = props;
 
   const params = useMemo(
     () => ({
+      ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes.link]),
+      className: classSelector([classes.link, ...classNames]),
       href: url,
-      style: {
-        ...style,
-      },
+      style,
     }),
-    [dataCy, dataTestId, style, url]
+    [ref, dataCy, dataTestId, style, classNames, url]
   );
 
   return <a {...params}>{children}</a>;
