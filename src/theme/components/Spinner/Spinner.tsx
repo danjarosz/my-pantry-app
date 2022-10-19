@@ -9,10 +9,11 @@ export interface SpinnerProps {
   testId?: string;
   dataCy?: string;
   variant?: "small" | "medium" | "large";
+  classNames?: string[];
 }
 
 const Spinner: FC<SpinnerProps> = (props) => {
-  const { ref, testId, dataCy, variant = "medium" } = props;
+  const { ref, testId, dataCy, variant = "medium", classNames = [] } = props;
 
   const params = useMemo(
     () => ({
@@ -24,9 +25,10 @@ const Spinner: FC<SpinnerProps> = (props) => {
         variant === "small" && classes.small,
         variant === "medium" && classes.medium,
         variant === "large" && classes.large,
+        ...classNames,
       ]),
     }),
-    [dataCy, ref, testId, variant]
+    [dataCy, ref, testId, variant, classNames]
   );
 
   return (
