@@ -12,7 +12,7 @@ export interface ListItemProps {
   style?: {
     [prop: string]: any;
   };
-  classNames: string[];
+  classNames?: string[];
 }
 
 // TODO Develop this component
