@@ -1,37 +1,47 @@
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
-import type { FC } from "react";
-import type { Children } from "../../types";
+import type { FC, RefObject } from "react";
+import type { Child } from "../../types";
 import classes from "./Tooltip.module.scss";
 import { Box } from "../Box";
 
 export interface TooltipProps {
-  children?: Children;
+  children: Child;
+  ref?: RefObject<any>;
   dataCy?: string;
   dataTestId?: string;
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
+  title: string;
 }
 
 // TODO Develop this component
 
 const Tooltip: FC<TooltipProps> = (props) => {
-  const { dataCy, dataTestId, style, children } = props;
+  const {
+    children,
+    ref,
+    dataCy,
+    dataTestId,
+    style,
+    classNames = [],
+    title,
+  } = props;
 
   const params = useMemo(
     () => ({
-      "data-cy": dataCy,
-      "data-testid": dataTestId,
-      className: classSelector([classes.tooltip]),
-      style: {
-        ...style,
-      },
+      ref,
+      dataCy,
+      dataTestId,
+      classNames: [classes.tooltip, ...classNames],
+      style,
     }),
-    [dataCy, dataTestId, style]
+    [ref, dataCy, dataTestId, style, classNames]
   );
 
-  return <Box>{children}</Box>;
+  return <Box {...params}>{children}</Box>;
 };
 
 export default Tooltip;
