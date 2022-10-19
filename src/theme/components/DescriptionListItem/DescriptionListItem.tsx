@@ -10,6 +10,7 @@ export interface DescriptionListItemProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
   title: string;
   description: string | string[];
 }
@@ -17,17 +18,28 @@ export interface DescriptionListItemProps {
 // TODO Develop this component
 
 const DescriptionListItem: FC<DescriptionListItemProps> = (props) => {
-  const { ref, dataCy, dataTestId, style, title, description } = props;
+  const {
+    ref,
+    dataCy,
+    dataTestId,
+    style,
+    classNames = [],
+    title,
+    description,
+  } = props;
 
   const params = useMemo(
     () => ({
       ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes["description-list-item"]]),
+      className: classSelector([
+        classes["description-list-item"],
+        ...classNames,
+      ]),
       style,
     }),
-    [ref, dataCy, dataTestId, style]
+    [ref, dataCy, dataTestId, style, classNames]
   );
 
   const descriptionEl = useMemo(() => {

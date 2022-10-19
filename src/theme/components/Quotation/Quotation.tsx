@@ -14,23 +14,37 @@ export interface QuotationProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
 }
 
 // TODO Develop this component
 
 const Quotation: FC<QuotationProps> = (props) => {
-  const { children, ref, tag = "q", dataCy, dataTestId, style, cite } = props;
+  const {
+    children,
+    ref,
+    tag = "q",
+    dataCy,
+    dataTestId,
+    style,
+    classNames = [],
+    cite,
+  } = props;
 
   const params = useMemo(
     () => ({
       ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes.quotation, classes[`${tag}`]]),
+      className: classSelector([
+        classes.quotation,
+        classes[`${tag}`],
+        ...classNames,
+      ]),
       style,
       cite,
     }),
-    [ref, tag, dataCy, dataTestId, style, cite]
+    [ref, tag, dataCy, dataTestId, style, cite, classNames]
   );
 
   switch (tag) {

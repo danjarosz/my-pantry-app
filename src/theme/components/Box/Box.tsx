@@ -21,6 +21,7 @@ export interface BoxProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
   width?: string;
   height?: string;
   display?:
@@ -45,6 +46,7 @@ const Box: FC<BoxProps> = (props) => {
     dataCy,
     dataTestId,
     style = {},
+    classNames = [],
     width = "auto",
     height = "auto",
     display = "block",
@@ -74,7 +76,8 @@ const Box: FC<BoxProps> = (props) => {
         // TODO add border
         // TODO add box-shadow
         // TODO add background or create component to manage bgc
-        // TODO add inline-size and box-size
+        // TODO add inline-size and box-size.
+        ...classNames,
       ]),
       style: {
         width,
@@ -88,6 +91,7 @@ const Box: FC<BoxProps> = (props) => {
       dataTestId,
       display,
       style,
+      classNames,
       width,
       height,
       overflow,

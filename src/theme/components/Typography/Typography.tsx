@@ -26,22 +26,35 @@ export interface TypographyProps {
   style?: {
     [prop: string]: any;
   };
+  classNames?: string[];
 }
 
 // TODO Develop this component
 
 const Typography: FC<TypographyProps> = (props) => {
-  const { children, ref, tag = "p", dataCy, dataTestId, style } = props;
+  const {
+    children,
+    ref,
+    tag = "p",
+    dataCy,
+    dataTestId,
+    style,
+    classNames = [],
+  } = props;
 
   const params = useMemo(
     () => ({
       ref,
       "data-cy": dataCy,
       "data-testid": dataTestId,
-      className: classSelector([classes.typography, classes[`${tag}`]]),
+      className: classSelector([
+        classes.typography,
+        classes[`${tag}`],
+        ...classNames,
+      ]),
       style,
     }),
-    [ref, tag, dataCy, dataTestId, style]
+    [ref, tag, dataCy, dataTestId, style, classNames]
   );
 
   switch (tag) {
