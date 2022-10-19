@@ -10,7 +10,7 @@ export interface DescriptionListItemProps {
   style?: {
     [prop: string]: any;
   };
-  classNames: string[];
+  classNames?: string[];
   title: string;
   description: string | string[];
 }
