@@ -22,7 +22,9 @@ export interface TypographyProps {
     | "b"
     | "u"
     | "abbr"
-    | "address";
+    | "address"
+    | "sup"
+    | "sub";
   dataCy?: string;
   dataTestId?: string;
   style?: {
@@ -96,6 +98,10 @@ const Typography: FC<TypographyProps> = (props) => {
       );
     case "address":
       return <address {...params}>{children}</address>;
+    case "sup":
+      return <sup {...params}>{children}</sup>;
+    case "sub":
+      return <sub {...params}>{children}</sub>;
     default:
       return <p {...params}>{children}</p>;
   }

@@ -85,4 +85,14 @@ describe("Typography", () => {
     render(<Typography tag={"address"} dataTestId={testId}></Typography>);
     expect(screen.getByTestId(testId)).toHaveClass("address");
   });
+
+  it("should render  <sup/>", () => {
+    render(<Typography tag={"sup"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("sup");
+  });
+
+  it("should render  <sub/>", () => {
+    render(<Typography tag={"sub"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("sub");
+  });
 });

@@ -122,3 +122,21 @@ export const address = () => {
     </Typography>
   );
 };
+
+export const sup = () => {
+  return (
+    <Typography>
+      Lorem ipsum <Typography tag={"sup"}>dolor sit</Typography> amet,
+      consectetur adipiscing elit.
+    </Typography>
+  );
+};
+
+export const sub = () => {
+  return (
+    <Typography>
+      Lorem ipsum <Typography tag={"sub"}>dolor sit</Typography> amet,
+      consectetur adipiscing elit.
+    </Typography>
+  );
+};
