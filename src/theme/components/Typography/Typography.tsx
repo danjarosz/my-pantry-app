@@ -20,13 +20,15 @@ export interface TypographyProps {
     | "i"
     | "strong"
     | "b"
-    | "u";
+    | "u"
+    | "abbr";
   dataCy?: string;
   dataTestId?: string;
   style?: {
     [prop: string]: any;
   };
   classNames?: string[];
+  title?: string;
 }
 
 // TODO Develop this component
@@ -40,6 +42,7 @@ const Typography: FC<TypographyProps> = (props) => {
     dataTestId,
     style,
     classNames = [],
+    title,
   } = props;
 
   const params = useMemo(
@@ -84,6 +87,12 @@ const Typography: FC<TypographyProps> = (props) => {
       return <b {...params}>{children}</b>;
     case "u":
       return <u {...params}>{children}</u>;
+    case "abbr":
+      return (
+        <abbr {...params} title={title}>
+          {children}
+        </abbr>
+      );
     default:
       return <p {...params}>{children}</p>;
   }

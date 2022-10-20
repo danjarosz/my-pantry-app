@@ -1,30 +1,35 @@
 .typography {
-}
-
-.p {
   font-size: var(--base-font-size);
 }
 
+.p {
+}
+
 .h1 {
+  font-size: calc(var(--base-font-size) * 2);
 }
 
 .h2 {
+  font-size: calc(var(--base-font-size) * 1.8);
 }
 
 .h3 {
+  font-size: calc(var(--base-font-size) * 1.6);
 }
 
 .h4 {
+  font-size: calc(var(--base-font-size) * 1.4);
 }
 
 .h5 {
+  font-size: calc(var(--base-font-size) * 1.2);
 }
 
 .h6 {
+  font-size: var(--base-font-size);
 }
 
 .span {
-  font-size: inherit;
 }
 
 .em {
@@ -40,4 +45,7 @@
 }
 
 .u {
+}
+
+.abbr {
 }

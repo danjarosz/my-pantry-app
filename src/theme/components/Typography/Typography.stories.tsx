@@ -50,7 +50,7 @@ export const h5 = () => {
 };
 
 export const h6 = () => {
-  return <Typography tag={"h6"}>{longText}</Typography>;
+  return <Typography tag={"h6"}>{shortText}</Typography>;
 };
 
 export const span = () => {
@@ -75,7 +75,6 @@ export const i = () => {
   );
 };
 
-// | "strong"
 export const strong = () => {
   return (
     <Typography>
@@ -99,6 +98,18 @@ export const u = () => {
     <Typography>
       Lorem ipsum <Typography tag={"u"}>dolor sit</Typography> amet, consectetur
       adipiscing elit.
+    </Typography>
+  );
+};
+
+export const abbr = () => {
+  return (
+    <Typography>
+      Lorem ipsum{" "}
+      <Typography tag={"abbr"} title={"abbr title"}>
+        dolor sit
+      </Typography>{" "}
+      amet, consectetur adipiscing elit.
     </Typography>
   );
 };

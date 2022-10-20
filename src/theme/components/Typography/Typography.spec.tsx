@@ -75,4 +75,9 @@ describe("Typography", () => {
     render(<Typography tag={"u"} dataTestId={testId}></Typography>);
     expect(screen.getByTestId(testId)).toHaveClass("u");
   });
+
+  it("should render  <abbr/>", () => {
+    render(<Typography tag={"abbr"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("abbr");
+  });
 });
