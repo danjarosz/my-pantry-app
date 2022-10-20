@@ -1,9 +1,11 @@
 import { useMemo } from "react";
 import { classSelector } from "../../helpers";
+import { Box } from "../Box";
+import { Typography } from "../Typography";
 import type { FC, RefObject } from "react";
 import type { Child } from "../../types";
+import type { BoxProps } from "../Box";
 import classes from "./Tooltip.module.scss";
-import { Box } from "../Box";
 
 export interface TooltipProps {
   children: Child;
@@ -11,9 +13,13 @@ export interface TooltipProps {
   dataCy?: string;
   dataTestId?: string;
   style?: {
-    [prop: string]: any;
+    wrapper: { [prop: string]: any };
+    tooltip: { [prop: string]: any };
   };
-  classNames?: string[];
+  classNames?: {
+    wrapper: string[];
+    tooltip: string[];
+  };
   title: string;
 }
 
@@ -25,23 +31,45 @@ const Tooltip: FC<TooltipProps> = (props) => {
     ref,
     dataCy,
     dataTestId,
-    style,
-    classNames = [],
+    style = {
+      wrapper: {},
+      tooltip: {},
+    },
+    classNames = {
+      wrapper: [],
+      tooltip: [],
+    },
     title,
   } = props;
 
-  const params = useMemo(
+  const wrapperParams = useMemo<BoxProps>(
     () => ({
       ref,
       dataCy,
       dataTestId,
-      classNames: [classes.tooltip, ...classNames],
-      style,
+      classNames: [classes["tooltip-wrapper"], ...classNames.wrapper],
+      style: style.wrapper,
+      display: "inline-block",
     }),
-    [ref, dataCy, dataTestId, style, classNames]
+    [ref, dataCy, dataTestId, style.wrapper, classNames]
   );
 
-  return <Box {...params}>{children}</Box>;
+  const tooltipParams = useMemo<BoxProps>(
+    () => ({
+      style: style.tooltip,
+      classNames: [classes["tooltip"], ...classNames.tooltip],
+    }),
+    [classNames.tooltip, style.tooltip]
+  );
+
+  return (
+    <Box {...wrapperParams}>
+      <Box {...tooltipParams}>
+        <Typography>{title}</Typography>
+      </Box>
+      {children}
+    </Box>
+  );
 };
 
 export default Tooltip;

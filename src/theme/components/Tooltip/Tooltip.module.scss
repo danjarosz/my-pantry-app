@@ -1,2 +1,19 @@
+.tooltip-wrapper {
+  position: relative;
+
+  &:hover .tooltip {
+    opacity: 1;
+  }
+}
+
 .tooltip {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  background-color: var(--info);
+  color: var(--btn-color);
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity var(--transition-time);
 }
