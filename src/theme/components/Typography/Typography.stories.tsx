@@ -113,3 +113,12 @@ export const abbr = () => {
     </Typography>
   );
 };
+
+export const address = () => {
+  return (
+    <Typography tag={"address"}>
+      <Typography>Name: Dan</Typography>
+      <Typography>Phone: +32 234566</Typography>
+    </Typography>
+  );
+};

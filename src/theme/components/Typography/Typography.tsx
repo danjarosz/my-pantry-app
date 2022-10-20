@@ -21,7 +21,8 @@ export interface TypographyProps {
     | "strong"
     | "b"
     | "u"
-    | "abbr";
+    | "abbr"
+    | "address";
   dataCy?: string;
   dataTestId?: string;
   style?: {
@@ -42,7 +43,7 @@ const Typography: FC<TypographyProps> = (props) => {
     dataTestId,
     style,
     classNames = [],
-    title,
+    title, // title is required for abbr
   } = props;
 
   const params = useMemo(
@@ -93,6 +94,8 @@ const Typography: FC<TypographyProps> = (props) => {
           {children}
         </abbr>
       );
+    case "address":
+      return <address {...params}>{children}</address>;
     default:
       return <p {...params}>{children}</p>;
   }

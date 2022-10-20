@@ -80,4 +80,9 @@ describe("Typography", () => {
     render(<Typography tag={"abbr"} dataTestId={testId}></Typography>);
     expect(screen.getByTestId(testId)).toHaveClass("abbr");
   });
+
+  it("should render  <address/>", () => {
+    render(<Typography tag={"address"} dataTestId={testId}></Typography>);
+    expect(screen.getByTestId(testId)).toHaveClass("address");
+  });
 });
