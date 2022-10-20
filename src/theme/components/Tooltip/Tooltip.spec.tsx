@@ -13,6 +13,6 @@ describe("Typography", () => {
         <Button>Click me</Button>
       </Tooltip>
     );
-    expect(screen.getByTestId(testId)).toHaveClass("tooltip");
+    expect(screen.getByTestId(testId)).toHaveClass("tooltip-wrapper");
   });
 });
