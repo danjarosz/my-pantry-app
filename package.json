@@ -1,0 +1,11 @@
+{
+  "name": "my-pantry-app",
+  "version": "1.0.0",
+  "description": "This is the application to create a pantry and add items to it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
