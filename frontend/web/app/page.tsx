@@ -1,14 +1,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
-import { useEffect } from 'react';
 
 export default function Home() {
-  const title = 'My Pantry App';
-  useEffect(() => {
-    title = 'App';
-    console.log('Home page mounted', title);
-  }, []);
-
   return (
     <main className={styles.main}>
       <h1>Welcome to My Pantry App</h1>
