@@ -1,0 +1,17 @@
+name: StyleLint
+
+on:
+  push
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: "Run frontend stylelint"
+        working-directory: ./frontend
+        run: |
+          npm install
+          npm run validate:stylelint
