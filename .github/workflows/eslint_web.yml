@@ -1,8 +1,7 @@
 name: ESLint Web
 
 on:
-  pull_request:
-    branches: [master]
+  push
 
 jobs:
   validate:
