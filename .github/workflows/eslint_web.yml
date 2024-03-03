@@ -14,4 +14,4 @@ jobs:
         working-directory: ./frontend/web
         run: |
           npm install
-          npm run eslint
+          npm run validate:eslint

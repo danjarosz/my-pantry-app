@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint . --ext .js,.jsx,.tsx,.ts"
+    "validate:eslint": "eslint ."
   },
   "dependencies": {
     "react": "^18",

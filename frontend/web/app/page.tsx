@@ -3,9 +3,9 @@ import styles from './page.module.css';
 import { useEffect } from 'react';
 
 export default function Home() {
-  let lll = 2;
+  let title = 'My Pantry App';
   useEffect(() => {
-    console.log('Home page mounted', lll);
+    console.log('Home page mounted', title);
   }, []);
 
   return (
