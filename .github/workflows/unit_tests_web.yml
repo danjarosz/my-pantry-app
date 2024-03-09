@@ -1,17 +1,17 @@
-name: ESLint Web
+name: Unit Tests Web
 
 on:
   push
 
 jobs:
   validate:
-    name: Validate
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - name: "Run ESLint validation for the web application"
+      - name: "Run unit tests for the web application"
         working-directory: ./frontend/web
         run: |
           npm install
-          npm run validate:eslint
+          npm run test
