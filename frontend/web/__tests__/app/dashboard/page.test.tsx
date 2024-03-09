@@ -1,9 +1,9 @@
-import Login from './page';
+import Dashboard from '../../../app/dashboard/page';
 import { render, screen } from '@testing-library/react';
 
-describe('<Login />', () => {
+describe('<Dashboard />', () => {
   it('should render without crashing', () => {
-    render(<Login />);
+    render(<Dashboard />);
 
     const heading = screen.getByRole('heading', { level: 1 });
 
