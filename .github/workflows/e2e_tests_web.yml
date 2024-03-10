@@ -4,21 +4,23 @@ on:
   push
 
 jobs:
-  validate:
+  test:
     name: e2e tests
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout"
-        uses: actions/checkout@v3
-      - name: "Install dependencies"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - uses: cypress-io/github-action@v6
         working-directory: ./frontend/web
-        uses: actions/setup-node@v3
+        env:
+          NODE_OPTIONS: "--max_old_space_size=8192"
+          SETUP_COVERAGE: true
+        with:
+          install: npm install
+          build: npm run build
+          start: npm run start
+          wait-on: "http://localhost:8080"
+          wait-on-timeout: 180
+          config-file: "cypress.config.ts"
         run:
-          npm install
-      - name: "Run e2e tests for the web application"
-        working-directory: ./frontend/web
-        uses: cypress-io/github-action@v6
-        run:
-          npm run build
-          npm run start
           npm run cypress:run

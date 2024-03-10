@@ -4,7 +4,7 @@ on:
   push
 
 jobs:
-  validate:
+  test:
     name: Unit tests
     runs-on: ubuntu-latest
     steps:
