@@ -5,20 +5,13 @@ on:
 
 jobs:
   test:
-    name: e2e tests
+    name: E2E tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - uses: cypress-io/github-action@v6
-      - name: "Run e2e tests for the web application"
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: "Run E2E tests for the web application"
         working-directory: ./frontend/web
-        env:
-          NODE_OPTIONS: "--max_old_space_size=8192"
-          SETUP_COVERAGE: true
-        run:
+        run: |
           npm install
-          npm run build
-          npm run start &
-          sleep 10
-          npm run cypress:run
+          npm run e2e:headless
