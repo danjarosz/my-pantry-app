@@ -14,4 +14,4 @@ jobs:
         working-directory: ./frontend/web
         run: |
           npm install
-          npm run e2e:headless
+          npm run e2e:headless:ci

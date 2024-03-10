@@ -13,7 +13,9 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
-    "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\""
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
+    "e2e:ci": "npm run build && start-server-and-test start http://localhost:3000 \"cypress open --e2e\"",
+    "e2e:headless:ci": "npm run build && start-server-and-test start http://localhost:3000 \"cypress run --e2e\""
   },
   "dependencies": {
     "next": "14.1.1",
