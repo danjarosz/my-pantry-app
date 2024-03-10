@@ -15,12 +15,9 @@ jobs:
         env:
           NODE_OPTIONS: "--max_old_space_size=8192"
           SETUP_COVERAGE: true
-        with:
-          install: npm install
-          build: npm run build
-          start: npm run start
-          wait-on: "http://localhost:8080"
-          wait-on-timeout: 180
-          config-file: "cypress.config.ts"
         run:
+          npm install
+          npm run build
+          npm run start &
+          sleep 10
           npm run cypress:run
