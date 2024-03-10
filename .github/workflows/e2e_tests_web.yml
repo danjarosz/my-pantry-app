@@ -5,13 +5,13 @@ on:
 
 jobs:
   test:
-    name: Unit
+    name: E2E
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - name: "Run unit tests for the web application"
+      - name: "Run E2E tests for the web application"
         working-directory: ./frontend/web
         run: |
           npm install
-          npm run test
+          npm run e2e:headless:ci
