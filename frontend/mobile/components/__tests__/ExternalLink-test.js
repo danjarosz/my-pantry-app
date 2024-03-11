@@ -10,7 +10,7 @@ describe('ExternalLink', () => {
     render(<ExternalLink href="https://example.com">Example</ExternalLink>);
     expect(
       screen.getByRole('link', {
-        name: 'Examplee'
+        name: 'Example'
       })
     ).toBeTruthy();
   });
