@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - name: "Run unit tests for the web application"
+      - name: "Run unit tests for the mobile application"
         working-directory: ./frontend/mobile
         run: |
           yarn install
