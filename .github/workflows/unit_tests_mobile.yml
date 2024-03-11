@@ -1,0 +1,17 @@
+name: Test Mobile
+
+on:
+  push
+
+jobs:
+  test:
+    name: Unit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: "Run unit tests for the mobile application"
+        working-directory: ./frontend/mobile
+        run: |
+          yarn install
+          yarn test

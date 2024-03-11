@@ -1,4 +1,4 @@
-name: StyleLint
+name: StyleLint Web
 
 on:
   push
