@@ -1,4 +1,4 @@
-.storybookPage {
+.storybook-page {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -8,7 +8,7 @@
   color: #333;
 }
 
-.storybookPage h2 {
+.storybook-page h2 {
   font-weight: 700;
   font-size: 32px;
   line-height: 1;
@@ -17,21 +17,21 @@
   vertical-align: top;
 }
 
-.storybookPage p {
+.storybook-page p {
   margin: 1em 0;
 }
 
-.storybookPage a {
+.storybook-page a {
   text-decoration: none;
   color: #1ea7fd;
 }
 
-.storybookPage ul {
+.storybook-page ul {
   padding-left: 30px;
   margin: 1em 0;
 }
 
-.storybookPage li {
+.storybook-page li {
   margin-bottom: 8px;
 }
 
@@ -48,14 +48,14 @@
   vertical-align: top;
 }
 
-.tipWrapper {
+.tip-wrapper {
   font-size: 13px;
   line-height: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-.tipWrapper svg {
+.tip-wrapper svg {
   display: inline-block;
   height: 12px;
   width: 12px;
@@ -64,6 +64,6 @@
   margin-top: 3px;
 }
 
-.tipWrapper svg path {
+.tip-wrapper svg path {
   fill: #1ea7fd;
 }

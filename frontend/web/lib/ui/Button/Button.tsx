@@ -28,10 +28,10 @@ interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
-  const mode = primary ? classes.storybookButtonPrimary : classes.storybookButtonSecondary;
+  const mode = primary ? classes['storybook-button-primary'] : classes['storybook-button-secondary'];
 
   return (
-    <button type="button" className={[classes.storybookButton, classes[`storybookButton${size}`], mode].join(' ')} {...props}>
+    <button type="button" className={[classes['storybook-button'], classes[`storybook-button-${size}`], mode].join(' ')} {...props}>
       {label}
     </button>
   );
