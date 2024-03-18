@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "validate:eslint": "eslint .",
+    "validate:stylelint": "stylelint \"**/*.css\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "cypress:open": "cypress open",
@@ -49,6 +50,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "start-server-and-test": "^2.0.3",
     "storybook": "^8.0.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5"
   }
