@@ -1,0 +1,17 @@
+name: ESLint Backend
+
+on:
+  push
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: "Run ESLint validation for the web application"
+        working-directory: ./backend
+        run: |
+          npm install
+          npm run validate:eslint
