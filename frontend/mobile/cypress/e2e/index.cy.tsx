@@ -2,7 +2,7 @@
 
 describe('My First Test', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:8081/');
+    cy.visit('/');
   });
 
   it('Verify Text', () => {
