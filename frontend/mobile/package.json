@@ -37,6 +37,7 @@
     "@react-native/eslint-config": "^0.75.0-main",
     "@testing-library/react-native": "^12.4.3",
     "@types/react": "~18.2.45",
+    "cypress": "^13.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-universe": "^12.0.0",
