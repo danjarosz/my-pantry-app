@@ -15,7 +15,7 @@
     "e2e": "start-server-and-test web http://localhost:8081 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test web http://localhost:8081 \"cypress run --e2e\"",
     "e2e:ci": "yarn build && start-server-and-test web http://localhost:8081 \"cypress open --e2e\"",
-    "e2e:headless:ci": "npm run build && start-server-and-test web http://localhost:8081 \"cypress run --e2e\""
+    "e2e:headless:ci": "yarn build && start-server-and-test web http://localhost:8081 \"cypress run --e2e\""
   },
   "jest": {
     "preset": "jest-expo"
