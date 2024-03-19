@@ -7,9 +7,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "validate:eslint": "eslint .",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "validate:eslint": "eslint ."
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "jest": {
     "preset": "jest-expo"
