@@ -14,4 +14,4 @@ jobs:
         working-directory: ./frontend/mobile
         run: |
           yarn install
-          yarn e2e:headless:ci
+          yarn e2e:headless
