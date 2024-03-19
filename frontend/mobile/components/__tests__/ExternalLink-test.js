@@ -1,5 +1,6 @@
-import { ExternalLink } from '../ExternalLink';
 import { render, screen } from '@testing-library/react-native';
+
+import { ExternalLink } from '../ExternalLink';
 
 describe('ExternalLink', () => {
   it('should be defined', () => {
