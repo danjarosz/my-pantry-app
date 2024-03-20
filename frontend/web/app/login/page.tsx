@@ -1,4 +1,4 @@
-import { Button } from '@/lib/ui/Button/Button';
+import { Button } from '@/app/ui/Button/Button';
 
 export default function Login() {
   return (
