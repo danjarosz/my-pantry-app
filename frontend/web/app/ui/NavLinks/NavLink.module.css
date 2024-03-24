@@ -1,0 +1,19 @@
+.link {
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  background-color: #333;
+}
+
+.link:hover {
+  background-color: teal;
+}
+
+.link-text {
+  background-color: inherit;
+  padding: 10px;
+}
+
+.link-active {
+  background-color: teal;
+}

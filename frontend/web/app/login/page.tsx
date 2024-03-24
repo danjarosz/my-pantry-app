@@ -1,6 +1,6 @@
-import { Button } from '@/lib/ui/Button/Button';
+import { Button } from '@/app/ui/Button/Button';
 
-export default function Login() {
+export default function Page() {
   return (
     <main>
       <h1>Login page</h1>

@@ -1,5 +1,5 @@
 .storybook-header {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: inherit;
   border-bottom: 1px solid rgb(0 0 0 / 10%);
   padding: 15px 20px;
   display: flex;
