@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { latoRegular } from '@/app/ui/fonts';
+import clsx from 'clsx';
 import '@/app/ui/globals.css';
 
 export const metadata: Metadata = {

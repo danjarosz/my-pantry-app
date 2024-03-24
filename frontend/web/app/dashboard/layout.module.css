@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+}
+
+.nav-wrapper {
+  width: 260px;
+  height: 100vh;
+  border-right: 1px solid teal;
+}
+
+.main-wrapper {
+  flex: 1;
+  padding: 20px;
+}
